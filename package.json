@@ -20,18 +20,14 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
-    "body": "^5.1.0",
-    "body-parser": "^1.18.2",
-    "express": "^4.16.2",
-    "mongoose": "^4.13.9",
-    "parser": "^0.1.4"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/melheins/clean-titans-2.0-app.git"
-  },
-  "bugs": {
-    "url": "https://github.com/melheins/clean-titans-2.0-app/issues"
-  },
-  "homepage": "https://github.com/melheins/clean-titans-2.0-app#readme"
+
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "mongoose": "^4.11.7",
+    "mysql": "^2.15.0",
+    "mysql2": "^1.5.1",
+    "path": "^0.12.7",
+    "sequelize": "^4.26.0",
+    "firebase": "^4.7.0"
+  }
 }
