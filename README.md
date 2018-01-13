@@ -11,6 +11,7 @@ TBD
 * [Valarie Regas](https://github.com/ValarieR)
 * [Melanie Heins](https://github.com/melheins)
 * [Kathy Satterlee](https://github.com/ksatter) 
+* [Alicia Barrett](https://github.com/aliciawyse) 
 
 ## Known Issues
 *
