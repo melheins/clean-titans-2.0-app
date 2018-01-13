@@ -1,84 +1,57 @@
-var express = require("express");
-var bodyParser = require("body-parser");
-var logger = require("morgan");
-var mongoose = require("mongoose");
+// *****************************************************************************
+// Server.js - This file is the initial starting point for the Node/Express server.
+//
+// ******************************************************************************
+// *** Dependencies
+// =============================================================
+const express = require("express");
+const bodyParser = require("body-parser");
 
-var PORT = 3000;
+// Sets up the Express App
+// =============================================================
+const app = express();
+const PORT = process.env.PORT || 8080;
 
-// Require all models
-var db = require("./models/index");
+// Requiring our models for syncing
+const db = require("./models");
 
-// Initialize Express
-var app = express();
+// Sets up the Express app to handle data parsing
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.text());
+app.use(bodyParser.json({type: "application/vnd.api+json"}));
 
-// Configure middleware
-
-// Use morgan logger for logging requests
-app.use(logger("dev"));
-// Use body-parser for handling form submissions
-app.use(bodyParser.urlencoded({extended: false}));
-// Use express.static to serve the public folder as a static directory
+// Static directory
 app.use(express.static("public"));
 
-// Set mongoose to leverage built in JavaScript ES6 Promises
-// Connect to the Mongo DB
-mongoose.Promise = Promise;
-// Connect to localhost if not a production environment
-if (process.env.NODE_ENV == 'production') {
-    // Gotten using `heroku config | grep MONGODB_URI` command in Command Line
-    //mongoose.connect('mongodb://heroku_kbdv0v69:860jh71jd1iu5m5639gjr0gg9l@ds129028.mlab.com:29028/heroku_kbdv0v69');
-}
-else {
-    mongoose.connect("mongodb://localhost/cleanTitans", {
-        useMongoClient: true
-    });
-}
+// Handlebars
+// =============================================================
+const exphbs = require("express-handlebars");
 
-
-// When the server starts, create a dummy avatar
-db.Avatars
-    .create({name: "super girl", link: "tbd"})
-    .then(function (dbAvatars) {
-        console.log(dbAvatars);
-    })
-    .catch(function (err) {
-        console.log(err.message);
-    });
-
-// When the server starts, create a dummy parent and child
-
-db.Parent
-    .create({first_name: "Tessy", last_name: "Tester", email: "test@test.org"})
-    .then(function (dbParent) {
-        console.log(dbParent);
-        var parentId = dbParent._id;
-        //sessionStorage.setItem('parentId', dbParent._id);
-
-        db.Avatars.findOne({name: "super girl"})
-            .then(function (dbAvatars) {
-                console.log(dbAvatars);
-                var avatarId = dbAvatars._id;
-
-                db.Child
-                //.get( parentId = sessionStorage.getItem('parentId'))
-                    .create({first_name: "Lisa", nickname: "Supergirl", parent_id: parentId, avatars_id: avatarId})
-                    .then(function (dbChild) {
-                        console.log(dbChild);
-                    })
-                    .catch(function (err) {
-                        console.log(err.message);
-                    });
-            })
-    })
-    .catch(function (err) {
-        console.log(err.message);
-    });
-
+app.engine("handlebars", exphbs({defaultLayout: "login_layout"}));
+app.set("view engine", "handlebars");
 
 // Routes
+// =============================================================
+// var routes = require("./controllers/test_controller.js");
+// app.use("/", routes);
 
+const route1 = require("./controllers/login_controller.js");
+const route2 = require("./controllers/parent_controller.js");
+const route3 = require("./controllers/child_controller.js");
+const route4 = require("./controllers/parent_api_controller.js");
+const route5 = require("./controllers/child_api_controller.js");
 
-// Start the server
-app.listen(PORT, function () {
-    console.log("App running on port " + PORT + "!");
+app.use("/", route1);
+app.use("/", route2);
+app.use("/", route3);
+app.use("/", route4);
+app.use("/", route5);
+
+// Syncing our sequelize models and then starting our Express app
+// =============================================================
+db.sequelize.sync({force: false}).then(function () {
+    app.listen(PORT, function () {
+        console.log("App listening on PORT " + PORT);
+    });
 });
