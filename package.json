@@ -4,6 +4,7 @@
   "description": "## Overview An app to teach kids responsibility.  Kids earn points by completing daily tasks. Points are awarded when parent confirms tasks are complete. Children can redeem rewards for comic books or parent approved rewards such as ice cream, tv time.",
   "main": "server.js",
   "scripts": {
+    "predeploy": "npm run build",
     "server": "node server.js",
     "client": "node scripts/start-client.js",
     "start": "concurrently \"nodemon server.js\" \"npm run client\"",
