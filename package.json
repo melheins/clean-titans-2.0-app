@@ -24,12 +24,14 @@
     "axios": "^0.16.2",
 
     "body-parser": "^1.17.2",
+    "concurrently": "^3.5.1",
     "express": "^4.15.4",
     "firebase": "^4.7.0",
     "mongoose": "^4.11.7",
     "mysql": "^2.15.0",
     "mysql2": "^1.5.1",
     "path": "^0.12.7",
+    "react-router-dom": "^4.2.2",
     "sequelize": "^4.26.0"
   }
 }
