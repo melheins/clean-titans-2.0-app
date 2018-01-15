@@ -3,7 +3,7 @@
 import auth0 from 'auth0-js';
 import history from '../history';
 
-export default class Auth {
+{/*export default class Auth {
     auth0 = new auth0.WebAuth({
         domain: 'regas.auth0.com',
         clientID: 'fqt2c8HBdwPWw2oIzVGAv0KORXAAiYE7',
@@ -16,14 +16,14 @@ export default class Auth {
     login() {
         this.auth0.authorize();
     }
-}
+}*/}
 
 
 // ...
 export default class Auth {
     // ...
     constructor() {
-        this.login = this.login.bind(this);
+       // this.login = this.login.bind(this);
         this.logout = this.logout.bind(this);
         this.handleAuthentication = this.handleAuthentication.bind(this);
         this.isAuthenticated = this.isAuthenticated.bind(this);

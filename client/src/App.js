@@ -9,7 +9,7 @@ import ParentNav from "./components/Nav";
 // App.js
 import Auth from './Auth/Auth.js';
 const auth = new Auth();
-auth.login();
+//auth.login();
 
 const App = () =>
     <Router>
