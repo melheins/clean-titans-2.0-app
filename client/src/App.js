@@ -1,9 +1,10 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React from "react";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+//import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Books from "./pages/Books";
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
-import Nav from "./components/Nav";
+import ParentNav from "./components/Nav";
 
 // App.js
 import Auth from './Auth/Auth.js';
