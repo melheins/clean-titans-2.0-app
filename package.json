@@ -1,7 +1,7 @@
 {
   "name": "mern",
   "version": "1.0.0",
-  "description": "",
+  "description": "## Overview An app to teach kids responsibility.  Kids earn points by completing daily tasks. Points are awarded when parent confirms tasks are complete. Children can redeem rewards for comic books or parent approved rewards such as ice cream, tv time.",
   "main": "server.js",
   "scripts": {
     "server": "node server.js",
@@ -21,6 +21,7 @@
   "dependencies": {
     "auth0-js": "^9.0.2",
     "axios": "^0.16.2",
+
     "body-parser": "^1.17.2",
     "express": "^4.15.4",
     "firebase": "^4.7.0",
