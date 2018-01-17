@@ -5,23 +5,39 @@ import Books from "./pages/Books";
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
 import ParentNav from "./components/Nav";
-
-// App.js
 import Auth from './Auth/Auth.js';
-const auth = new Auth();
-//auth.login();
 
-const App = () =>
-    <Router>
-        <div>
-            <ParentNav/>
-            <Switch>
-                <Route exact path="/" component={Books}/>
-                <Route exact path="/books" component={Books}/>
-                <Route exact path="/books/:id" component={Detail}/>
-                <Route component={NoMatch}/>
-            </Switch>
-        </div>
-    </Router>;
+
+const auth = new Auth();
+
+class App extends Component {
+    sign_user = () => {
+        auth.login();
+    };
+    render() {
+        return (
+            <div>
+                <h1>Welcome to Auth0 app</h1>
+
+                <button onClick = {this.sign_user}>Click to sign in</button>
+            </div>
+        );
+    }
+}
+
+
+
+// const App = () =>
+//   <Router>
+//     <div>
+//       <Nav />
+//       <Switch>
+//         <Route exact path="/" component={Books} />
+//         <Route exact path="/books" component={Books} />
+//         <Route exact path="/books/:id" component={Detail} />
+//         <Route component={NoMatch} />
+//       </Switch>
+//     </div>
+//   </Router>;
 
 export default App;
