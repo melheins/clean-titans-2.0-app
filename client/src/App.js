@@ -4,67 +4,29 @@ import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Books from "./pages/Books";
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
+<<<<<<< HEAD
+import Nav from "./components/Nav";
+=======
 import ParentNav from "./components/Nav";
 
 // App.js
+>>>>>>> fbe4eab2ea832d32e01bc5dcae327d7e5904f66b
 import Auth from './Auth/Auth.js';
+
+
 const auth = new Auth();
-auth.login();
+
 
 class App extends Component {
-    goTo(route) {
-        this.props.history.replace(`/${route}`)
-    }
-
-    login() {
-        this.props.auth.login();
-    }
-
-    logout() {
-        this.props.auth.logout();
-    }
-
+    sign_user = () => {
+        auth.login();
+    };
     render() {
-        const { isAuthenticated } = this.props.auth;
-
         return (
             <div>
-                {/*<Navbar fluid>*/}
-                    {/*<Navbar.Header>*/}
-                        {/*<Navbar.Brand>*/}
-                            {/*<a href="#">Auth0 - React</a>*/}
-                        {/*</Navbar.Brand>*/}
-                        {/*<Button*/}
-                            {/*bsStyle="primary"*/}
-                            {/*className="btn-margin"*/}
-                            {/*onClick={this.goTo.bind(this, 'home')}*/}
-                        {/*>*/}
-                            {/*Home*/}
-                        {/*</Button>*/}
-                        {/*{*/}
-                            {/*!isAuthenticated() && (*/}
-                                {/*<Button*/}
-                                    {/*bsStyle="primary"*/}
-                                    {/*className="btn-margin"*/}
-                                    {/*onClick={this.login.bind(this)}*/}
-                                {/*>*/}
-                                    {/*Log In*/}
-                                {/*</Button>*/}
-                            {/*)*/}
-                        {/*}*/}
-                        {/*{*/}
-                            {/*isAuthenticated() && (*/}
-                                {/*<Button*/}
-                                    {/*bsStyle="primary"*/}
-                                    {/*className="btn-margin"*/}
-                                    {/*onClick={this.logout.bind(this)}*/}
-                                {/*>*/}
-                                    {/*Log Out*/}
-                                {/*</Button>*/}
-                            {/*)*/}
-                        {/*}*/}
-                    {/*</Navbar.Header>*/}
-                {/*</Navbar>*/}
+                <h1>Welcome to Auth0 app</h1>
+
+                <button onClick = {this.sign_user}>Click to sign in</button>
             </div>
         );
     }
