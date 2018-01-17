@@ -22,7 +22,6 @@
   "dependencies": {
     "auth0-js": "^9.0.2",
     "axios": "^0.16.2",
-
     "body-parser": "^1.17.2",
     "concurrently": "^3.5.1",
     "express": "^4.15.4",

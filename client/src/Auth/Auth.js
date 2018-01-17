@@ -16,4 +16,3 @@ export default class Auth {
         this.auth0.authorize();
     }
 }
-

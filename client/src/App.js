@@ -4,18 +4,11 @@ import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Books from "./pages/Books";
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
-<<<<<<< HEAD
-import Nav from "./components/Nav";
-=======
 import ParentNav from "./components/Nav";
-
-// App.js
->>>>>>> fbe4eab2ea832d32e01bc5dcae327d7e5904f66b
 import Auth from './Auth/Auth.js';
 
 
 const auth = new Auth();
-
 
 class App extends Component {
     sign_user = () => {
