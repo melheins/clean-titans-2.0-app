@@ -1,1 +1,2 @@
-export { default } from "./ParentNav";
+export * from "./ParentNav";
+export * from "./ChildNav";
