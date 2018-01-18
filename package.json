@@ -1,7 +1,7 @@
 {
-  "name": "mern",
+  "name": "clean-titans-2.0-app",
   "version": "1.0.0",
-  "description": "## Overview An app to teach kids responsibility.  Kids earn points by completing daily tasks. Points are awarded when parent confirms tasks are complete. Children can redeem rewards for comic books or parent approved rewards such as ice cream, tv time.",
+  "description": "An app to teach kids responsibility.  Kids earn points by completing daily tasks. Points are awarded when parent confirms tasks are complete. Children can redeem rewards for comic books or parent approved rewards such as ice cream, tv time.",
   "main": "server.js",
   "scripts": {
     "predeploy": "npm run build",
