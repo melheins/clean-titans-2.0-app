@@ -1,11 +1,9 @@
 import React from "react";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Books from "./pages/Books";
-import Detail from "./pages/Detail";
-import NoMatch from "./pages/NoMatch";
-import { ParentNav, ChildNav } from "./components/Nav";
-//import ParentNav from "./components/Nav";
+import { Approvals, Team, Missions, Rewards } from "./sections/Parent";
+import { CMissions, CRewards } from "./sections/Child";
+
 import Auth from './Auth/Auth.js';
 
 
@@ -33,28 +31,17 @@ const App = () =>
         <div>
             <Switch>
                 <Route exact path="/" component={Login}/>
-                <Route exact path="/parent">
-                    <ParentNav/>
-                </Route>
-                <Route exact path="/child">
-                    <ChildNav/>
-                </Route>
+                <Route exact path="/parent" component={Approvals}/>
+                <Route exact path="/parent/approvals" component={Approvals}/>
+                <Route exact path="/parent/team" component={Team}/>
+                <Route exact path="/parent/rewards" component={Rewards}/>
+                <Route exact path="/parent/missions" component={Missions}/>
+                <Route exact path="/child" component={CMissions}/>
+                <Route exact path="/child/missions" component={CMissions}/>
+                <Route exact path="/child/rewards" component={CRewards}/>
             </Switch>
         </div>
     </Router>;
 
-
-/** const App = () =>
- <Router>
- <div>
- <Nav />
- <Switch>
- <Route exact path="/" component={Books} />
- <Route exact path="/books" component={Books} />
- <Route exact path="/books/:id" component={Detail} />
- <Route component={NoMatch} />
- </Switch>
- </div>
- </Router>;  **/
 
 export default App;
