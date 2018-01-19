@@ -5,7 +5,7 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false
         },
         reward_description: {
-            type: DataTypes.TEXT,
+            type: DataTypes.STRING,
             allowNull: false
         },
         reward_points_required: {

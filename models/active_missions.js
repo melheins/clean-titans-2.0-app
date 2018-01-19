@@ -19,7 +19,7 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false
         },
         mission_description: {
-            type: DataTypes.TEXT,
+            type: DataTypes.STRING,
             allowNull: false
         },
         mission_video_url: {
