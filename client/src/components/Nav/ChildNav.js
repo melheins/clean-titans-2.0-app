@@ -4,7 +4,6 @@ import React from "react";
 //import missionsImage from "../../../public/images/icons/clean01.png"
 import logo from '../../assets/logo/logo_big_wide.png'
 import teamImg from '../../assets/icons/fam01.png'
-import apprImg from '../../assets/icons/fam01.png'
 import rewardsImg from '../../assets/icons/reward01.png'
 import missionsImg from '../../assets/icons/clean01.png'
 
@@ -12,7 +11,7 @@ import missionsImg from '../../assets/icons/clean01.png'
 import "./Nav.css";
 
 
-export const ParentNav = () =>
+export const ChildNav = () =>
     <nav className="navbar navbar-inverse navbar-top">
         <div className="container-fluid">
             <div className="navbar-header">
@@ -25,24 +24,19 @@ export const ParentNav = () =>
                     <img className={"header-logo"} src={logo} alt="logo"/>
                 </a>
                 <ul className={"nav navbar-nav navbar-right"}>
-                    <li className={"nav-icon"}><a href="/" className={"parent_team"}>
-                        <img alt="Team"
-                             className={"nav-icon-img"}
-                             src={teamImg}/>
-                            <div className={"nav-icon-text"}>Team</div>
-                    </a></li>
-                    <li className={"nav-icon"}><a href="/" className={"parent_rewards"}>
+                    <li className={"nav-icon"}><a href="/" className={"child_missions"}>
                         <img
-                        alt="Rewards" className={"nav-icon-img"}
-                        src={rewardsImg}/>
-                        <div className={"nav-icon-text"}>Rewards</div>
-                    </a></li>
-                    <li className={"nav-icon"}><a href="/" className={"parent_missions"}>
-                        <img
-                        alt="Missions" className={"nav-icon-img"}
-                        src={missionsImg}/>
+                            alt="Missions" className={"nav-icon-img"}
+                            src={missionsImg}/>
                         <div className={"nav-icon-text"}>Mission</div>
                     </a></li>
+                    <li className={"nav-icon"}><a href="/" className={"child_rewards"}>
+                        <img
+                            alt="Rewards" className={"nav-icon-img"}
+                            src={rewardsImg}/>
+                        <div className={"nav-icon-text"}>Rewards</div>
+                    </a></li>
+
                 </ul>
             </div>
         </div>
