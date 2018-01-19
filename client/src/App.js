@@ -5,9 +5,7 @@ import Books from "./pages/Books";
 import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
-//import ParentNav from "./components/Nav";
 import { ParentNav, ChildNav } from "./components/Nav";
-//import ParentNav from "./components/Nav";
 import Auth from './Auth/Auth.js';
 
 
