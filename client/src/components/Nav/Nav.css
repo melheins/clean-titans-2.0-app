@@ -2,7 +2,12 @@
     width: 150px;
 }
 
-.navbar-inverse {
-    background-color: green;
-    border-color: green;
+.parentnav.navbar-inverse {
+    background-color: #00C853;
+    border-color: #00C853;
+}
+
+.childnav.navbar-inverse {
+    background-color: #ffd600;
+    border-color: #ffd600;
 }

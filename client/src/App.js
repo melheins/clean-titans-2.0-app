@@ -1,11 +1,9 @@
 import React from "react";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Books from "./pages/Books";
-import Detail from "./pages/Detail";
-import NoMatch from "./pages/NoMatch";
-import { ParentNav, ChildNav } from "./components/Nav";
-//import ParentNav from "./components/Nav";
+import {ParentMain} from "./sections/Parent";
+import {ChildMain} from "./sections/Child";
+
 import Auth from './Auth/Auth.js';
 
 
@@ -30,31 +28,12 @@ class Login extends React.Component {
 
 const App = () =>
     <Router>
-        <div>
-            <Switch>
-                <Route exact path="/" component={Login}/>
-                <Route exact path="/parent">
-                    <ParentNav/>
-                </Route>
-                <Route exact path="/child">
-                    <ChildNav/>
-                </Route>
-            </Switch>
-        </div>
+        <Switch>
+            <Route exact path="/" component={Login}/>
+            <Route path="/parent" component={ParentMain}/>
+            <Route path="/child" component={ChildMain}/>
+        </Switch>
     </Router>;
 
-
-/** const App = () =>
- <Router>
- <div>
- <Nav />
- <Switch>
- <Route exact path="/" component={Books} />
- <Route exact path="/books" component={Books} />
- <Route exact path="/books/:id" component={Detail} />
- <Route component={NoMatch} />
- </Switch>
- </div>
- </Router>;  **/
 
 export default App;
