@@ -18,7 +18,7 @@ app.use(routes);
 
 
 ///START COMMENT OUT HERE TO CHANGE TO SQL SETUP
-
+/***
 // Set up promises with mongoose
 mongoose.Promise = global.Promise;
 // Connect to the Mongo DB
@@ -33,9 +33,9 @@ mongoose.connect(
 app.listen(PORT, function() {
     console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
+ **/
 
 
-/***
 // Requiring our models for syncing
 var db = require("./models");
 
@@ -46,4 +46,4 @@ db.sequelize.sync({force: false}).then(function () {
         console.log("App listening on PORT " + PORT);
     });
 });
- **/
+
