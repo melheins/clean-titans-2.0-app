@@ -2,7 +2,7 @@ import React from "react";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {ParentMain} from "./sections/Parent";
-import {CMissions, CRewards} from "./sections/Child";
+import {ChildMain} from "./sections/Child";
 
 import Auth from './Auth/Auth.js';
 
@@ -31,9 +31,7 @@ const App = () =>
         <Switch>
             <Route exact path="/" component={Login}/>
             <Route path="/parent" component={ParentMain}/>
-            <Route path="/child" component={CMissions}/>
-            <Route exact path="/child/missions" component={CMissions}/>
-            <Route exact path="/child/rewards" component={CRewards}/>
+            <Route path="/child" component={ChildMain}/>
         </Switch>
     </Router>;
 
