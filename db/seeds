@@ -1,0 +1,41 @@
+--#Seeds#
+
+USE clean_titans_db;
+
+--##Parent Data##
+INSERT INTO parents (first_name, last_name, uid, createdAt, updatedAt)
+VALUES ('Tina','Jones','tjones',current_timestamp(),current_timestamp());
+
+INSERT INTO parents (first_name, last_name, uid, createdAt, updatedAt)
+VALUES ('Doug','Brek','dbrek',current_timestamp(),current_timestamp());
+
+
+--##Child Data##
+INSERT INTO children (first_name, avatar, nickname, uid, createdAt, updatedAt, parentId)
+VALUES ('Maya',2,'Supergirlie','maya',current_timestamp(),current_timestamp(),1);
+
+INSERT INTO children (first_name, avatar, nickname, uid, createdAt, updatedAt, parentId)
+VALUES ('Johnathan',6,'Jon','jon',current_timestamp(),current_timestamp(),1);
+
+INSERT INTO children (first_name, avatar, nickname, uid, createdAt, updatedAt, parentId)
+VALUES ('Lilly',1,'Goldie','lilly',current_timestamp(),current_timestamp(),2);
+
+INSERT INTO children (first_name, avatar, nickname, uid, createdAt, updatedAt, parentId)
+VALUES ('Mike',3,'Capt','mike',current_timestamp(),current_timestamp(),2);
+
+--##Missions Data##
+INSERT INTO missions (mission_title, mission_point_value, mission_description, createdAt,updatedAt, mission_video_url)
+VALUES ('Brush Teeth AM', 3,'Brush teeth for 2 minutes.', current_timestamp(),current_timestamp(),'https://www.youtube.com/watch?v=Ku-ForS6G3I');
+
+INSERT INTO missions (mission_title, mission_point_value, mission_description, createdAt,updatedAt, mission_video_url)
+VALUES ('Brush Teeth PM', 3,'Brush teeth for 2 minutes.', current_timestamp(),current_timestamp(),'https://www.youtube.com/watch?v=Ku-ForS6G3I');
+
+
+
+
+--##Rewards Data##
+INSERT INTO rewards (reward_name, reward_description,reward_points_required,reward_category, createdAt,updatedAt)
+VALUES ('Ice Cream', 'Ice Cream treat',10,'r', current_timestamp(),current_timestamp());
+
+INSERT INTO rewards (reward_name, reward_description,reward_points_required,reward_category, createdAt,updatedAt)
+VALUES ('Tablet/Laptop 30', 'Tablet/Laptop Time for 30 minutes',15,'r', current_timestamp(),current_timestamp());
