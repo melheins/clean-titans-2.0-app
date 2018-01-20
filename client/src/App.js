@@ -26,11 +26,13 @@ class Login extends React.Component {
 
 const App = () =>
     <Router>
-        <Switch>
-            <Route exact path="/" component={Login}/>
-            <Route path="/parent" component={ParentMain}/>
-            <Route path="/child" component={ChildMain}/>
-        </Switch>
+        <MuiThemeProvider>
+            <Switch>
+                <Route exact path="/" component={Login}/>
+                <Route path="/parent" component={ParentMain}/>
+                <Route path="/child" component={ChildMain}/>
+            </Switch>
+        </MuiThemeProvider>
     </Router>;
 
 
