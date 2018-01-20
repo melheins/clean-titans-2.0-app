@@ -1,59 +1,58 @@
-import React from "react";
-import DeleteBtn from "../../components/DeleteBtn";
+import React, {Component} from "react";
 import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
-import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../../components/Grid";
-import { List, ListItem } from "../../components/List";
-import { Input, TextArea, FormBtn } from "../../components/Form";
 
 //import "./Nav.css";
-
+import ChildCard from '../../components/Card/Card';
 
 export class Team extends React.Component {
 
-    state = {
-        books: [],
-        title: "",
-        author: "",
-        synopsis: ""
-    };
 
     componentDidMount() {
-        this.loadBooks();
+        this.loadChildren();
     }
 
-    loadBooks = () => {
+    loadChildren = () => {
         API.getChildren()
             .then(res =>
 
-                this.setState({ books: res.data, title: "", author: "", synopsis: "" })
+                this.setState({})
             )
             .catch(err => console.log(err));
     };
+
+    constructor() {
+        super();
+        this.sampleChildren = [
+            {
+                first_name: "Maya",
+                nickname: "Supergirlie",
+                points: "5",
+                avatar: "1"
+            },
+            {
+                first_name: "Tim",
+                nickname: "Tiny",
+                points: "15",
+                avatar: "1"
+            },
+        ]
+    }
 
     render() {
         return (
             <div>
                 <h1>Team</h1>
                 <div>
-                    <Jumbotron>
-                        <h1>Children</h1>
-                    </Jumbotron>
-                    {this.state.books.length ? (
-                        <List>
-                            {this.state.books.map(children => (
-                                <ListItem key={children.id}>
-                                    <Link to={"/books/" + children.id}>
-                                        <strong>
-                                            {children.first_name}
-                                        </strong>
-                                    </Link>
-                                </ListItem>
-                            ))}
-                        </List> ) : (
-                        <h3>No Results to Display</h3>
-                    )}
+                    <div className={'row'}>
+                        {this.sampleChildren.map((each, i) => {
+                            console.log(each);
+                            console.log(i);
+                            return <ChildCard key={i} first_name={each.first_name} nickname={each.nickname}
+                                            points={each.points}
+                            />;
+                        })}
+                    </div>
                 </div>
             </div>
         );
