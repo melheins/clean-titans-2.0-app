@@ -21,8 +21,25 @@ router.get('/parent/team/:id', (req, res) => {
         //console.log(children);
         res.json(children);
     })
-
 });
+
+router.get('/parent/missions', (req, res) => {
+    db.missions.findAll({}).then(function (data) {
+        //console.log(data);
+        //const missions = data;
+        res.json(data);
+    })
+});
+
+
+router.get('/parent/rewards', (req, res) => {
+    db.rewards.findAll({}).then(function (data) {
+        //console.log(data);
+        //const rewards = data;
+        res.json(data);
+    })
+});
+
 
 // If no API routes are hit, send the React app
 router.use(function (req, res) {

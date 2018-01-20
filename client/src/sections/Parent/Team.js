@@ -4,11 +4,7 @@ import API from "../../utils/API";
 //import "./Nav.css";
 import TeamCard from '../../components/Card/TeamCard';
 
-
-
 export class Team extends React.Component {
-
-
 
     state = {
         children: [],
@@ -17,11 +13,11 @@ export class Team extends React.Component {
 
     componentDidMount() {
         const pid=1;
-        this.loadChildren(pid);
+        this.loadTeamSection(pid);
     }
 
-    loadChildren (pid) {
-        API.getChildren(pid)
+    loadTeamSection (pid) {
+        API.loadTeamSec(pid)
             .then(res =>
                     // console.log(res.data)
                     this.setState({children: res.data})

@@ -2,12 +2,16 @@ import axios from "axios";
 
 export default {
 
-// Gets the child with the given id
-    getChild: function (id) {
-        return axios.get("/api/child/" + id);
-    },
-//
-    getChildren: function (id) {
+    // Loads team page
+    loadTeamSec: function (id) {
         return axios.get("/parent/team/" + id);
+    },
+    // Loads missions page
+    loadMissionSec: function () {
+        return axios.get("/parent/missions");
+    },
+    // Loads rewards page
+    loadRewardSec: function () {
+        return axios.get("/parent/rewards");
     }
 };
