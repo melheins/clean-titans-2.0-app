@@ -1,11 +1,14 @@
 import React, {Component} from "react";
-import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
 
 //import "./Nav.css";
-import ChildCard from '../../components/Card/Card';
+import TeamCard from '../../components/Card/TeamCard';
+
+
 
 export class Team extends React.Component {
+
+
 
     state = {
         children: [],
@@ -13,11 +16,12 @@ export class Team extends React.Component {
     };
 
     componentDidMount() {
-        this.loadChildren();
+        const pid=1;
+        this.loadChildren(pid);
     }
 
-    loadChildren = () => {
-        API.getChildren()
+    loadChildren (pid) {
+        API.getChildren(pid)
             .then(res =>
                     // console.log(res.data)
                     this.setState({children: res.data})
@@ -56,7 +60,7 @@ export class Team extends React.Component {
                             {this.state.children.map((each, i) => {
                                // console.log(each);
                                // console.log(i);
-                                return <ChildCard key={i} first_name={each.first_name} nickname={each.nickname}
+                                return <TeamCard key={i} first_name={each.first_name} nickname={each.nickname}
                                                   points={each.points}
                                 />;
                             })}

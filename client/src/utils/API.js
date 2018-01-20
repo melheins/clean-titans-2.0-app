@@ -7,7 +7,7 @@ export default {
         return axios.get("/api/child/" + id);
     },
 //
-    getChildren: function () {
-        return axios.get("/parent/team");
+    getChildren: function (id) {
+        return axios.get("/parent/team/" + id);
     }
 };
