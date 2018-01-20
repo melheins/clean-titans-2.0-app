@@ -6,8 +6,8 @@ export default {
     getChild: function (id) {
         return axios.get("/api/child/" + id);
     },
-// Saves a book to the database
+//
     getChildren: function () {
-        return axios.get("/api/children");
+        return axios.get("/parent/team");
     }
 };

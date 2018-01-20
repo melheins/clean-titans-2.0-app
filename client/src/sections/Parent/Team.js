@@ -7,6 +7,10 @@ import ChildCard from '../../components/Card/Card';
 
 export class Team extends React.Component {
 
+    state = {
+        children: [],
+        sampleChildren: [],
+    };
 
     componentDidMount() {
         this.loadChildren();
@@ -15,13 +19,14 @@ export class Team extends React.Component {
     loadChildren = () => {
         API.getChildren()
             .then(res =>
-
-                this.setState({})
+                    // console.log(res.data)
+                    this.setState({children: res.data})
+                //this.setState({children: JSON.stringify(res.data)})
             )
             .catch(err => console.log(err));
     };
 
-    constructor() {
+    /** constructor() {
         super();
         this.sampleChildren = [
             {
@@ -37,24 +42,38 @@ export class Team extends React.Component {
                 avatar: "1"
             },
         ]
-    }
+    } **/
 
     render() {
-        return (
-            <div>
-                <h1>Team</h1>
+
+        if (this.state.children.length > 0) {
+            return (
                 <div>
-                    <div className={'row'}>
-                        {this.sampleChildren.map((each, i) => {
-                            console.log(each);
-                            console.log(i);
-                            return <ChildCard key={i} first_name={each.first_name} nickname={each.nickname}
-                                            points={each.points}
-                            />;
-                        })}
+                    <h1>Team</h1>
+                    <div>
+                        <div className={'row'}>
+                            {console.log(this.state.children)}
+                            {this.state.children.map((each, i) => {
+                               // console.log(each);
+                               // console.log(i);
+                                return <ChildCard key={i} first_name={each.first_name} nickname={each.nickname}
+                                                  points={each.points}
+                                />;
+                            })}
+                        </div>
                     </div>
                 </div>
-            </div>
-        );
+            );
+        }
+        else {
+            return (
+                <div>
+                    <h1>Team</h1>
+                    <div>
+                        <p>There are no children on file</p>
+                    </div>
+                </div>
+            );
+        }
     }
 }
