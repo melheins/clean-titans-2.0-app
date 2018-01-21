@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import {Card, CardActions, CardTitle, CardText} from 'material-ui/Card';
-
-
+import Avatar from 'material-ui/Avatar';
 
 class TeamCard extends Component {
     constructor(props) {
@@ -17,14 +16,15 @@ class TeamCard extends Component {
         };
     }
 
-
     render() {
+
         return (
+
             <div className={"col-lg-4 col-md-12 mb-3"}>
                 <div>
                     <Card className={"p-2"}>
                         <CardTitle style={{padding: "8px"}}
-                                   title={"Name: " + this.state.first_name}/>
+                                   title={this.state.first_name}/>
                         <CardText style={{padding: "8px"}}>Nickname: {this.state.nickname}</CardText>
                         <CardText style={{padding: "8px"}}>Points: {this.state.points}</CardText>
                     </Card>

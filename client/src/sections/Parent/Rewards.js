@@ -48,8 +48,8 @@ export class Rewards extends React.Component {
 
         if (this.state.rewards.length > 0) {
             return (
-                <div>
-                    <h1>Team</h1>
+                <div className="container">
+                    <h1>Rewards</h1>
                     <div>
                         <div className={'row'}>
                             {console.log(this.state.rewards)}
@@ -67,8 +67,8 @@ export class Rewards extends React.Component {
         }
         else {
             return (
-                <div>
-                    <h1>Team</h1>
+                <div className="container">
+                    <h1>Rewards</h1>
                     <div>
                         <p>There are no rewards on file</p>
                     </div>

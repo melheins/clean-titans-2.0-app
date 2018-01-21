@@ -1,9 +1,13 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import {Card, CardActions, CardTitle, CardText} from 'material-ui/Card';
-
+import Divider from 'material-ui/Divider';
+import Subheader from 'material-ui/Subheader';
+import Avatar from 'material-ui/Avatar';
 
 
 class MissCard extends Component {
+
+
     constructor(props) {
         super();
 
@@ -25,7 +29,7 @@ class MissCard extends Component {
                 <div>
                     <Card className={"p-2"}>
                         <CardTitle style={{padding: "8px"}}
-                                   title={"Name: " + this.state.title}/>
+                                   title={this.state.title}/>
                         <CardText style={{padding: "8px"}}>Description: {this.state.description}</CardText>
                         <CardText style={{padding: "8px"}}>Points: {this.state.points}</CardText>
                     </Card>

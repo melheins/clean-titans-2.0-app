@@ -6,7 +6,7 @@ import React from "react";
 export class Approvals extends React.Component {
     render() {
         return (
-            <div>
+            <div className="container">
                 <h1>Approvals</h1>
             </div>
         );

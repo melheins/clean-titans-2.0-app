@@ -24,7 +24,7 @@ class RewCard extends Component {
                 <div>
                     <Card className={"p-2"}>
                         <CardTitle style={{padding: "8px"}}
-                                   title={"Name: " + this.state.title}/>
+                                   title={this.state.title}/>
                         <CardText style={{padding: "8px"}}>Description: {this.state.description}</CardText>
                         <CardText style={{padding: "8px"}}>Points: {this.state.points}</CardText>
                     </Card>
