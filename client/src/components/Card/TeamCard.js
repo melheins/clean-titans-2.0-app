@@ -3,7 +3,7 @@ import {Card, CardActions, CardTitle, CardText} from 'material-ui/Card';
 
 
 
-class ChildCard extends Component {
+class TeamCard extends Component {
     constructor(props) {
         super();
 
@@ -34,4 +34,4 @@ class ChildCard extends Component {
     }
 }
 
-export default ChildCard;
+export default TeamCard;

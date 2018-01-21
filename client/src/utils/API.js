@@ -2,12 +2,16 @@ import axios from "axios";
 
 export default {
 
-// Gets the child with the given id
-    getChild: function (id) {
-        return axios.get("/api/child/" + id);
+    // Loads team page
+    loadTeamSec: function (id) {
+        return axios.get("/api/parent/team/" + id);
     },
-// Saves a book to the database
-    getChildren: function () {
-        return axios.get("/api/children");
+    // Loads missions page
+    loadMissionSec: function () {
+        return axios.get("/api/parent/missions");
+    },
+    // Loads rewards page
+    loadRewardSec: function () {
+        return axios.get("/api/parent/rewards");
     }
 };
