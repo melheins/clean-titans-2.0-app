@@ -1,6 +1,7 @@
 import React from "react";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import RaisedButton from 'material-ui/RaisedButton';
 import {ParentMain} from "./sections/Parent";
 import {ChildMain} from "./sections/Child";
 import Auth from './Auth/Auth.js';
@@ -16,10 +17,14 @@ class Login extends React.Component {
 
     render() {
         return (
-            <div>
-                <h1>Welcome Heroes!</h1>
+            <div className={"row"}>
+                <div className={"col-lg-3 col-md-2 col-sm-1"}>
 
-                <button onClick={this.sign_user}>Click to sign in</button>
+                </div>
+                <div className={"col-lg-6 col-md-8 col-sm-10"}>
+                    <h1>Welcome Heroes!</h1>
+                    <RaisedButton onClick={this.sign_user}>Click to Sign In!</RaisedButton>
+                </div>
             </div>
         );
     }
