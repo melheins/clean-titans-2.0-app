@@ -14,7 +14,7 @@ import "./Nav.css";
 
 export const ChildNav = () =>
     <nav className="childnav navbar navbar-inverse navbar-top">
-        <div className="container-fluid">
+        <div className="container">
             <div className="navbar-header">
                 <button type="button" className="collapsed navbar-toggle">
                     <span className="sr-only">Toggle navigation</span>

@@ -48,7 +48,7 @@ export class Team extends React.Component {
 
         if (this.state.children.length > 0) {
             return (
-                <div>
+                <div className="container">
                     <h1>Team</h1>
                     <div>
                         <div className={'row'}>
@@ -57,7 +57,7 @@ export class Team extends React.Component {
                                // console.log(each);
                                // console.log(i);
                                 return <TeamCard key={i} first_name={each.first_name} nickname={each.nickname}
-                                                  points={each.points}
+                                                  points={each.points} avatar={each.avatar.avatar_url}
                                 />;
                             })}
                         </div>
@@ -67,7 +67,7 @@ export class Team extends React.Component {
         }
         else {
             return (
-                <div>
+                <div className="container">
                     <h1>Team</h1>
                     <div>
                         <p>There are no children on file</p>

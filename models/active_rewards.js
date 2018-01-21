@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
     const active_rewards = sequelize.define("active_rewards", {
-        reward_name: {
+        /**reward_name: {
             type: DataTypes.STRING,
             allowNull: false
         },
@@ -16,25 +16,35 @@ module.exports = function (sequelize, DataTypes) {
             {
                 type: DataTypes.STRING,
                 allowNull: false
-            },
+            },**/
         reward_status: {
             type: DataTypes.STRING,
             allowNull: false,
             defaultValue: "I"
+        },
+        reward_status_date: {
+            type: DataTypes.DATEONLY,
+            allowNull: false,
+            defaultValue: DataTypes.NOW
         }
     });
 
     active_rewards.associate = function (models) {
+        active_rewards.belongsTo(models.rewards, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
         active_rewards.belongsTo(models.children, {
             foreignKey: {
                 allowNull: false
             }
         });
-        active_rewards.belongsTo(models.parents, {
+        /**active_rewards.belongsTo(models.parents, {
             foreignKey: {
                 allowNull: false
             }
-        });
+        });**/
     };
     return active_rewards
 };

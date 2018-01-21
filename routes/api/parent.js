@@ -1,22 +1,21 @@
 const router = require("express").Router();
-//const parentController = require("../../controllers/parentController");
 const db = require("../../models");
 
 //PARENT ROUTES
 router.get('/team/:id', (req, res) => {
     console.log("test");
     console.log(req.params.id);
-    const id = req.params.id;
+    const parentId = req.params.id;
 
-    db.parents.findOne({
+    db.children.findAll({
         where: {
-            id
+            parentId
         },
-        include: [db.children]
+        include: [db.avatars]
     }).then(function (parentData) {
 
-        const children = parentData.children;
-        //console.log(children);
+        const children = parentData;
+       // console.log(parentData);
         res.json(children);
     })
 });
@@ -28,7 +27,6 @@ router.get('/missions', (req, res) => {
         res.json(data);
     })
 });
-
 
 router.get('/rewards', (req, res) => {
     db.rewards.findAll({}).then(function (data) {
