@@ -10,6 +10,12 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false,
             defaultValue: DataTypes.NOW
         },
+        mission_schedule_date: {
+            type: DataTypes.DATEONLY,
+            allowNull: true,
+            defaultValue: DataTypes.NOW
+        }
+        /***
         mission_title: {
             type: DataTypes.STRING,
             allowNull: false
@@ -25,7 +31,7 @@ module.exports = function (sequelize, DataTypes) {
         mission_video_url: {
             type: DataTypes.STRING,
             allowNull: true
-        }
+        }**/
     });
 
     active_missions.associate = function (models) {
@@ -39,13 +45,11 @@ module.exports = function (sequelize, DataTypes) {
                 allowNull: false
             }
         });
-        active_missions.belongsTo(models.parents, {
+        /**active_missions.belongsTo(models.parents, {
           foreignKey: {
             allowNull: false
           }
-        })
-
+        })**/
     };
     return active_missions
-
 };

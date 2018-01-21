@@ -8,18 +8,22 @@ module.exports = function (sequelize, DataTypes) {
         points: {
             type: DataTypes.INTEGER,
             defaultValue: 0
-        },
+        },/**
         avatar: {
             type: DataTypes.INTEGER,
             allowNull: true
-        },
+        },**/
         nickname: {
             type: DataTypes.STRING,
             allowNull: true
         },
         uid: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
+        },
+        pass: {
+            type: DataTypes.STRING,
+            allowNull: true
         }
     });
 
@@ -27,6 +31,11 @@ module.exports = function (sequelize, DataTypes) {
         children.belongsTo(models.parents, {
             foreignKey: {
                 allowNull: false
+            }
+        });
+        children.belongsTo(models.avatars, {
+            foreignKey: {
+                allowNull: true
             }
         });
         children.hasMany(models.active_rewards, {

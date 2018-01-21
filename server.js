@@ -16,27 +16,8 @@ app.use(routes);
 
 
 
-///START COMMENT OUT HERE TO CHANGE TO SQL SETUP
-/***
-// Set up promises with mongoose
-mongoose.Promise = global.Promise;
-// Connect to the Mongo DB
-mongoose.connect(
-    process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist",
-    {
-        useMongoClient: true
-    }
-);
-
-// Start the API server
-app.listen(PORT, function() {
-    console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
-});
- **/
-
-
 // Requiring our models for syncing
-var db = require("./models");
+const db = require("./models");
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================

@@ -1,61 +1,79 @@
-import React from "react";
-import DeleteBtn from "../../components/DeleteBtn";
-import Jumbotron from "../../components/Jumbotron";
+import React, {Component} from "react";
 import API from "../../utils/API";
-import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../../components/Grid";
-import { List, ListItem } from "../../components/List";
-import { Input, TextArea, FormBtn } from "../../components/Form";
 
 //import "./Nav.css";
-
+import TeamCard from '../../components/Card/TeamCard';
 
 export class Team extends React.Component {
 
     state = {
-        books: [],
-        title: "",
-        author: "",
-        synopsis: ""
+        children: [],
+        sampleChildren: [],
     };
 
     componentDidMount() {
-        this.loadBooks();
+        const pid=1;
+        this.loadTeamSection(pid);
     }
 
-    loadBooks = () => {
-        API.getChildren()
+    loadTeamSection (pid) {
+        API.loadTeamSec(pid)
             .then(res =>
-
-                this.setState({ books: res.data, title: "", author: "", synopsis: "" })
+                    // console.log(res.data)
+                    this.setState({children: res.data})
+                //this.setState({children: JSON.stringify(res.data)})
             )
             .catch(err => console.log(err));
     };
 
+    /** constructor() {
+        super();
+        this.sampleChildren = [
+            {
+                first_name: "Maya",
+                nickname: "Supergirlie",
+                points: "5",
+                avatar: "1"
+            },
+            {
+                first_name: "Tim",
+                nickname: "Tiny",
+                points: "15",
+                avatar: "1"
+            },
+        ]
+    } **/
+
     render() {
-        return (
-            <div>
-                <h1>Team</h1>
-                <div>
-                    <Jumbotron>
-                        <h1>Children</h1>
-                    </Jumbotron>
-                    {this.state.books.length ? (
-                        <List>
-                            {this.state.books.map(children => (
-                                <ListItem key={children.id}>
-                                    <Link to={"/books/" + children.id}>
-                                        <strong>
-                                            {children.first_name}
-                                        </strong>
-                                    </Link>
-                                </ListItem>
-                            ))}
-                        </List> ) : (
-                        <h3>No Results to Display</h3>
-                    )}
+
+        if (this.state.children.length > 0) {
+            return (
+                <div className="container">
+                    <h1>Team</h1>
+                    <div>
+                        <div className={'row'}>
+                            {console.log(this.state.children)}
+                            {this.state.children.map((each, i) => {
+                               // console.log(each);
+                               // console.log(i);
+                                return <TeamCard key={i} first_name={each.first_name} nickname={each.nickname}
+                                                  points={each.points} avatar={each.avatar.avatar_url}
+                                />;
+                            })}
+                        </div>
+                    </div>
                 </div>
-            </div>
-        );
+            );
+        }
+        else {
+            return (
+                <div className="container">
+                    <h1>Team</h1>
+                    <div>
+                        <p>There are no children on file</p>
+                    </div>
+                </div>
+            );
+        }
     }
 }
