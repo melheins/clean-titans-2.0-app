@@ -3,6 +3,23 @@ const db = require("../../models");
 
 //CHILD ROUTES
 
+router.get('/:id', (req, res) => {
+    console.log("test");
+    console.log(req.params.id);
+    const id = req.params.id;
+
+    db.children.findOne({
+        where: {
+            id
+        },
+        include: [db.avatars]
+    }).then(function (childData) {
+        // console.log(parentData);
+        res.json(childData);
+    })
+});
+
+
 router.get('/missions/:id', (req, res) => {
     const childId = req.params.id;
     //console.log("c mission, id=" + childId);
