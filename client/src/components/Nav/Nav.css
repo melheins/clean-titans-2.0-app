@@ -11,3 +11,16 @@
     background-color: #ffd600;
     border-color: #ffd600;
 }
+
+.nav-icon-img {
+    height: 40px;
+}
+
+.nav-icon {
+    text-align: center;
+    color: #FFFFFF;
+}
+.navbar-nav>li>a {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}

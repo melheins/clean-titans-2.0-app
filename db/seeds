@@ -12,10 +12,10 @@ VALUES ('Doug','Brek','dbrek',current_timestamp(),current_timestamp());
 /**--##Avatar Data##**/
 
 INSERT INTO avatars (avatar_name, avatar_url, createdAt, updatedAt)
-VALUES ('Supergirl','../../assets/childavatars/supergirl.png',current_timestamp(),current_timestamp());
+VALUES ('Supergirl','supergirl',current_timestamp(),current_timestamp());
 
 INSERT INTO avatars (avatar_name, avatar_url, createdAt, updatedAt)
-VALUES ('Superman','../../assets/childavatars/superman.png',current_timestamp(),current_timestamp());
+VALUES ('Superman','superman',current_timestamp(),current_timestamp());
 
 /**--##Missions Data##**/
 INSERT INTO missions (mission_title, mission_point_value, mission_description, createdAt,updatedAt, mission_video_url)

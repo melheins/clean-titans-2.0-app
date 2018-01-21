@@ -1,12 +1,8 @@
 import React from "react";
 import {Link} from 'react-router-dom';
-//import {AppBar, Tabs, Tab} from 'material-ui';
-//import MissionBtn from "../NavBtns";
-//import missionsImage from "../../../public/images/icons/clean01.png"
 import logo from '../../assets/logo/logo_big_wide.png'
-import teamImg from '../../assets/icons/fam01.png'
-import rewardsImg from '../../assets/icons/reward01.png'
-import missionsImg from '../../assets/icons/clean01.png'
+import rewardsImg from '../../assets/icons/R.png'
+import missionsImg from '../../assets/icons/M.png'
 
 
 import "./Nav.css";

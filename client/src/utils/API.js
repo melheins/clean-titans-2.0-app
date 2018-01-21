@@ -21,5 +21,9 @@ export default {
     // Loads child rewards page
     loadChildRewardSec: function (id) {
         return axios.get("/api/child/rewards/" + id);
+    },
+    // Loads child rewards page
+    loadChildNav: function (id) {
+        return axios.get("/api/child/" + id);
     }
 };
