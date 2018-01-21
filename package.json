@@ -26,7 +26,6 @@
     "concurrently": "^3.5.1",
     "express": "^4.15.4",
     "firebase": "^4.7.0",
-    "mongoose": "^4.11.7",
     "mysql": "^2.15.0",
     "mysql2": "^1.5.1",
     "path": "^0.12.7",
