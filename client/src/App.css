@@ -3,5 +3,11 @@ body {
 }
 
 div {
+    position: relative;
+    left: auto;
+    right: auto;
+}
+
+button {
 
 }
