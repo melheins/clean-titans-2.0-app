@@ -1,7 +1,7 @@
 import history from '../history';
 
 export default class Auth2 {
-    // ...
+
     constructor() {
         this.login = this.login.bind(this);
         this.logout = this.logout.bind(this);
@@ -13,9 +13,9 @@ export default class Auth2 {
         this.auth0.parseHash((err, authResult) => {
             if (authResult && authResult.accessToken && authResult.idToken) {
                 this.setSession(authResult);
-                history.replace('/home');
+                history.replace('/');
             } else if (err) {
-                history.replace('/home');
+                history.replace('/');
                 console.log(err);
             }
         });
@@ -28,7 +28,7 @@ export default class Auth2 {
         localStorage.setItem('id_token', authResult.idToken);
         localStorage.setItem('expires_at', expiresAt);
         // navigate to the home route
-        history.replace('/home');
+        history.replace('/parent');
     }
 
     logout() {
@@ -37,7 +37,7 @@ export default class Auth2 {
         localStorage.removeItem('id_token');
         localStorage.removeItem('expires_at');
         // navigate to the home route
-        history.replace('/home');
+        history.replace('/');
     }
 
     isAuthenticated() {
