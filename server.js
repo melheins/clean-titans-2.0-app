@@ -11,6 +11,11 @@ app.use(bodyParser.json());
 // Serve up static assets
 //app.use(express.static("client/build"));
 
+app.use('*', function (req, res) {
+    const index = path.join(__dirname, 'build', 'index.html');
+    res.sendFile(index);
+});
+
 // Add routes, both API and view
 app.use(routes);
 
