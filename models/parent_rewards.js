@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    const rewards = sequelize.define("rewards", {
+    const parent_rewards = sequelize.define("parent_rewards", {
         reward_name: {
             type: DataTypes.STRING,
             allowNull: false
@@ -19,5 +19,15 @@ module.exports = function (sequelize, DataTypes) {
             }
     });
 
-    return rewards
+    parent_rewards.associate = function (models) {
+        parent_rewards.hasMany(models.active_rewards, {
+            onDelete: "cascade"
+        });
+        parent_rewards.belongsTo(models.parents, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    };
+    return parent_rewards
 };

@@ -27,7 +27,7 @@ router.get('/missions/:id', (req, res) => {
         where: {
             childId
         },
-        include: [db.missions]
+        include: [db.parent_missions]
     }).then(function (childData) {
        // console.log(childData);
         res.json(childData);
@@ -41,7 +41,7 @@ router.get('/rewards/:id', (req, res) => {
         where: {
             childId
         },
-        include: [db.rewards]
+        include: [db.parent_rewards]
     }).then(function (childData) {
         // console.log(childData);
         res.json(childData);

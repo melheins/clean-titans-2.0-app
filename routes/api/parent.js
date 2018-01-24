@@ -14,22 +14,33 @@ router.get('/team/:id', (req, res) => {
         include: [db.avatars]
     }).then(function (parentData) {
 
-        const children = parentData;
+       // const children = parentData;
        // console.log(parentData);
-        res.json(children);
+        res.json(parentData);
     })
 });
 
-router.get('/missions', (req, res) => {
-    db.missions.findAll({}).then(function (data) {
+router.get('/missions/:id', (req, res) => {
+    const parentId = req.params.id;
+
+    db.parent_missions.findAll({
+        where: {
+            parentId
+        }
+    }).then(function (data) {
         //console.log(data);
         //const missions = data;
         res.json(data);
     })
 });
 
-router.get('/rewards', (req, res) => {
-    db.rewards.findAll({}).then(function (data) {
+router.get('/rewards/:id', (req, res) => {
+    const parentId = req.params.id;
+    db.parent_rewards.findAll({
+        where: {
+            parentId
+        }
+    }).then(function (data) {
         //console.log(data);
         //const rewards = data;
         res.json(data);
