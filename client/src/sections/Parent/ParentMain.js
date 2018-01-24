@@ -5,7 +5,7 @@ import {Team} from "./Team";
 import {Missions} from "./Missions";
 import {Rewards} from "./Rewards";
 import {ParentNav} from "../../components/Nav";
-
+import Auth from "../../Auth/Auth";
 
 export class ParentMain extends React.Component {
 
@@ -14,6 +14,8 @@ export class ParentMain extends React.Component {
     };
 
     componentDidMount() {
+
+        setSession();
 
         console.log(localStorage.getItem('id_token'));
         //localStorage.setItem
