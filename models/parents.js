@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
 
-  var parents = sequelize.define("parents", {
+  const parents = sequelize.define("parents", {
     first_name: {
       type: DataTypes.STRING,
       allowNull: false
@@ -19,12 +19,12 @@ module.exports = function (sequelize, DataTypes) {
     parents.hasMany(models.children, {
       onDelete: "cascade"
     });
-    /**parents.hasMany(models.active_rewards, {
+    parents.hasMany(models.parent_rewards, {
       onDelete: "cascade"
     });
-    parents.hasMany(models.active_missions, {
+    parents.hasMany(models.parent_missions, {
       onDelete: "cascade"
-    });**/
+    });
   };
 
   return parents;

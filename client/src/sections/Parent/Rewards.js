@@ -12,12 +12,12 @@ export class Rewards extends React.Component {
     };
 
     componentDidMount() {
-        //const pid=1;
-        this.loadRewardSection();
+        const pid=1;
+        this.loadRewardSection(pid);
     }
 
-    loadRewardSection () {
-        API.loadRewardSec()
+    loadRewardSection (pid) {
+        API.loadRewardSec(pid)
             .then(res =>
                     // console.log(res.data)
                     this.setState({rewards: res.data})

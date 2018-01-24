@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
 
-    const missions = sequelize.define("missions", {
+    const parent_missions = sequelize.define("parent_missions", {
         mission_title: {
             type: DataTypes.STRING,
             allowNull: false
@@ -17,6 +17,15 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING
         }
     });
-
-    return missions
+    parent_missions.associate = function (models) {
+        parent_missions.belongsTo(models.parents, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+        parent_missions.hasMany(models.active_missions, {
+            onDelete: "cascade"
+        });
+    };
+    return parent_missions
 };

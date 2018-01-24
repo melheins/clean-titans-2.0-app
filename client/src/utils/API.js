@@ -7,12 +7,12 @@ export default {
         return axios.get("/api/parent/team/" + id);
     },
     // Loads parent missions page
-    loadMissionSec: function () {
-        return axios.get("/api/parent/missions");
+    loadMissionSec: function (id) {
+        return axios.get("/api/parent/missions/" + id);
     },
     // Loads parent rewards page
-    loadRewardSec: function () {
-        return axios.get("/api/parent/rewards");
+    loadRewardSec: function (id) {
+        return axios.get("/api/parent/rewards/" + id);
     },
     // Loads child missions page
     loadChildMissionSec: function (id) {

@@ -13,12 +13,12 @@ export class Missions extends React.Component {
     };
 
     componentDidMount() {
-        //const pid=1;
-        this.loadMissionSection();
+        const pid=1;
+        this.loadMissionSection(pid);
     }
 
-    loadMissionSection() {
-        API.loadMissionSec()
+    loadMissionSection(pid) {
+        API.loadMissionSec(pid)
             .then(res =>
                     // console.log(res.data)
                     this.setState({missions: res.data})
