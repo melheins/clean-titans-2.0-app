@@ -5,7 +5,7 @@ import {List} from 'material-ui/List';
 //import "./Nav.css";
 import MissList from '../../components/Card/MissList';
 
-export class Missions extends React.Component {
+class Missions extends React.Component {
 
     state = {
         missions: [],
@@ -80,3 +80,5 @@ export class Missions extends React.Component {
         }
     }
 }
+
+export default Missions
