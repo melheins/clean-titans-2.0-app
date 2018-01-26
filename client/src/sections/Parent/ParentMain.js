@@ -5,7 +5,8 @@ import {Team} from "./Team";
 import {Missions} from "./Missions";
 import {Rewards} from "./Rewards";
 import {ParentNav} from "../../components/Nav";
-import Auth from "../../Auth/Auth";
+import {getIdToken, setIdToken} from '../../Auth/Auth';
+import {jwt_decode} from "jwt-decode";
 
 export class ParentMain extends React.Component {
 
@@ -15,10 +16,16 @@ export class ParentMain extends React.Component {
 
     componentDidMount() {
 
-        setSession();
+        setIdToken();
 
-        console.log(localStorage.getItem('id_token'));
-        //localStorage.setItem
+        var token = 'id_token';
+
+        var decoded = jwt_decode(token);
+        console.log(decoded);
+
+        getIdToken();
+
+        console.log(token);
     }
 
 
