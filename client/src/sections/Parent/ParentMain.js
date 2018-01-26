@@ -7,6 +7,7 @@ import {Rewards} from "./Rewards";
 import {ParentNav} from "../../components/Nav";
 import {getIdToken, setIdToken} from '../../Auth/Auth';
 import jwtDecode from "jwt-decode";
+import {ChildLogin} from "../Login/ChildLogin";
 
 export class ParentMain extends React.Component {
 
@@ -16,18 +17,18 @@ export class ParentMain extends React.Component {
 
     componentDidMount() {
 
+        // Set a unique jwt from Auth0, then decode it for use of data
         setIdToken();
 
-        var token = localStorage.getItem('id_token');
+        let token = localStorage.getItem('id_token');
 
-        var decoded = jwtDecode(token);
+        let decoded = jwtDecode(token);
         console.log(decoded);
 
         getIdToken();
 
         // console.log(token);
     }
-
 
     render() {
         return (
@@ -41,7 +42,7 @@ export class ParentMain extends React.Component {
                             <Route exact path="/parent/team" component={Team}/>
                             <Route exact path="/parent/rewards" component={Rewards}/>
                             <Route exact path="/parent/missions" component={Missions}/>
-                            <Route exact path="/childlogin" />
+                            <Route exact path="/childlogin" component={ChildLogin}/>
                         </Switch>
                     </div>
                 </div>

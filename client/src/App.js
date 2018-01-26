@@ -4,6 +4,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
 import {ParentMain} from "./sections/Parent";
 import {ChildMain} from "./sections/Child";
+import {ChildLogin} from "./sections/Login"
 import { login } from './Auth/Auth.js';
 import "./App.css"
 
@@ -37,6 +38,7 @@ const App = () =>
                 <Route exact path="/" component={Login}/>
                 <Route path="/parent" component={ParentMain}/>
                 <Route path="/child" component={ChildMain}/>
+                <Route path="/childlogin" component={ChildLogin}/>
             </Switch>
         </MuiThemeProvider>
     </Router>;
