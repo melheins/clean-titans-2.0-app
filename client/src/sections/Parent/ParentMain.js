@@ -25,7 +25,7 @@ export class ParentMain extends React.Component {
 
         getIdToken();
 
-        console.log(token);
+        // console.log(token);
     }
 
 
@@ -41,6 +41,7 @@ export class ParentMain extends React.Component {
                             <Route exact path="/parent/team" component={Team}/>
                             <Route exact path="/parent/rewards" component={Rewards}/>
                             <Route exact path="/parent/missions" component={Missions}/>
+                            <Route exact path="/childlogin" />
                         </Switch>
                     </div>
                 </div>
