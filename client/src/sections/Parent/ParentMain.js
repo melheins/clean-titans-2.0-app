@@ -2,11 +2,11 @@ import React from "react";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import {Approvals} from "./Approvals";
 import {Team} from "./Team";
-import {Missions} from "./Missions";
+import Missions from "./Missions";
 import {Rewards} from "./Rewards";
 import {ParentNav} from "../../components/Nav";
 import {getIdToken, setIdToken} from '../../Auth/Auth';
-import {jwt_decode} from "jwt-decode";
+import jwtDecode from "jwt-decode";
 
 export class ParentMain extends React.Component {
 
@@ -18,9 +18,9 @@ export class ParentMain extends React.Component {
 
         setIdToken();
 
-        var token = 'id_token';
+        var token = localStorage.getItem('id_token');
 
-        var decoded = jwt_decode(token);
+        var decoded = jwtDecode(token);
         console.log(decoded);
 
         getIdToken();

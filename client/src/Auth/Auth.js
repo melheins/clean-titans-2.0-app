@@ -9,7 +9,7 @@ const ACCESS_TOKEN_KEY = 'access_token';
 
 const CLIENT_ID = '3j2OVQKQy5NMMVpj5Kz1KaaOHWTNLqfC';
 const CLIENT_DOMAIN = 'regas.auth0.com';
-const REDIRECT = 'http://localhost:3000/callback';
+const REDIRECT = 'http://localhost:3000/parent';
 const SCOPE = 'openid';
 const AUDIENCE = 'https://regas.auth0.com/userinfo';
 
@@ -80,7 +80,7 @@ export function isLoggedIn() {
 }
 
 function getTokenExpirationDate(encodedToken) {
-    const token = decode(encodedToken);
+    const token = jwtDecode(encodedToken);
     if (!token.exp) { return null; }
 
     const date = new Date(0);

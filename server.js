@@ -5,7 +5,7 @@ const app = express();
 const path = require("path");
 const jwt = require('express-jwt');
 const jwks = require('jwks-rsa');
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 // Configure body parser for AJAX requests
 app.use(bodyParser.urlencoded({ extended: false }));
