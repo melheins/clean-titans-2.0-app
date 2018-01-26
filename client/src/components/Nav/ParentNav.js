@@ -5,6 +5,7 @@ import teamImg from '../../assets/icons/T.png'
 import apprImg from '../../assets/icons/A.png'
 import rewardsImg from '../../assets/icons/R.png'
 import missionsImg from '../../assets/icons/M.png'
+import heroesImg from '../../assets/icons/H.png'
 
 
 import "./Nav.css";
@@ -46,6 +47,12 @@ export const ParentNav = () =>
                             alt="Rewards" className={"nav-icon-img"}
                             src={rewardsImg}/>
                         <div className={"nav-icon-text"}>Rewards</div>
+                    </Link></li>
+                    <li className={"nav-icon"}><Link to='/childlogin'>
+                        <img
+                            alt="Child Login" className={"nav-icon-img"}
+                            src={heroesImg}/>
+                        <div className={"nav-icon-text"}>Hero's Login</div>
                     </Link></li>
 
                 </ul>

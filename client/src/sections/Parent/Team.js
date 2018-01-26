@@ -26,6 +26,7 @@ export class Team extends React.Component {
             .catch(err => console.log(err));
     };
 
+
     /** constructor() {
         super();
         this.sampleChildren = [
