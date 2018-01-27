@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import API from "../../utils/API";
 
 //import "./Nav.css";
-import MissCard from '../../components/Card/MissCard';
+import MissList from '../../components/Card/MissList';
 
 export class CMissions extends React.Component {
 
@@ -14,11 +14,11 @@ export class CMissions extends React.Component {
     componentDidMount() {
         console.log('Mission - Child Id: ' + localStorage.getItem('childId'));
         const cid = localStorage.getItem('childId');
-
+        // const cid = 4;
         this.loadMissionSection(cid);
     }
 
-    loadMissionSection (cid) {
+    loadMissionSection(cid) {
         console.log('Mission P2 - Child Id: ' + cid);
         API.loadChildMissionSec(cid)
             .then(res =>
@@ -59,8 +59,10 @@ export class CMissions extends React.Component {
                             {this.state.missions.map((each, i) => {
                                 // console.log(each);
                                 // console.log(i);
-                                return <MissCard key={i} title={each.parent_mission.mission_title} points={each.parent_mission.mission_point_value}
-                                                 description={each.parent_mission.mission_description} video={each.parent_mission.mission_video_url}
+                                return <MissList key={i} title={each.parent_mission.mission_title}
+                                                 points={each.parent_mission.mission_point_value}
+                                                 description={each.parent_mission.mission_description}
+                                                 video={each.parent_mission.mission_video_url}
                                                  status={each.mission_status}
                                 />;
                             })}
