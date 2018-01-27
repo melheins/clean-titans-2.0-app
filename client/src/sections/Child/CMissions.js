@@ -59,8 +59,8 @@ export class CMissions extends React.Component {
                             {this.state.missions.map((each, i) => {
                                 // console.log(each);
                                 // console.log(i);
-                                return <MissCard key={i} title={each.mission.mission_title} points={each.mission.mission_point_value}
-                                                 description={each.mission.mission_description} video={each.mission.mission_video_url}
+                                return <MissCard key={i} title={each.parent_mission.mission_title} points={each.parent_mission.mission_point_value}
+                                                 description={each.parent_mission.mission_description} video={each.parent_mission.mission_video_url}
                                                  status={each.mission_status}
                                 />;
                             })}
