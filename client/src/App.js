@@ -1,7 +1,7 @@
 import React from "react";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
 import {ParentMain} from "./sections/Parent";
 import {ChildMain} from "./sections/Child";
 import ChildLogin from "./sections/Login/ChildLogin"
@@ -25,7 +25,7 @@ class Login extends React.Component {
                 </div>
                 <div className={"col-lg-6 col-md-8 col-sm-10"}>
                     <h1>Welcome Heroes!</h1>
-                    <RaisedButton backgroundColor="red" style={{textAlign:'center',padding: '10px',backgroundColor:'red',fontWeight:'bold'}} onClick={this.sign_user}>Click to Sign In!</RaisedButton>
+                    <FlatButton backgroundColor="red" style={{textAlign:'center',height:'100%',padding: '15px',backgroundColor:'red',fontWeight:'bold'}} onClick={this.sign_user}>Click to Sign In!</FlatButton>
                 </div>
             </div>
         );
