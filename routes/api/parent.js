@@ -1,7 +1,17 @@
 const router = require("express").Router();
 const db = require("../../models");
+const express = require("express");
 
 //PARENT ROUTES
+
+router.post('/parent/new', req, res) => {
+    console.log(req.params.id);
+
+    const newParent = req.params.id;
+
+    db.parents.addOne
+}
+
 router.get('/account/:id', (req, res) => {
     console.log("test");
     console.log(req.params.id);
@@ -18,6 +28,9 @@ router.get('/account/:id', (req, res) => {
         res.json(parentData);
     })
 });
+
+// route for new users
+router.post('/parent')
 
 
 router.get('/team/:id', (req, res) => {

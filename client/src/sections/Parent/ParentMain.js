@@ -32,10 +32,17 @@ export class ParentMain extends React.Component {
                     console.log('Local - Parent Id: ' + localStorage.getItem('parentId'));
                 }
             )
+            .then(function (res) {
+                if (res.data.id === 0) {
+                    API.createNewUser(userId)
+                }
+            })
             .catch(err => console.log(err));
 
 
         getIdToken();
+
+
 
         // console.log(token);
     }
