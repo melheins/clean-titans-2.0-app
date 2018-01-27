@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import API from "../../utils/API";
 
 //import "./Nav.css";
-import MissList from '../../components/Card/MissList';
+import MissCard from '../../components/Card/MissCard';
 
 export class CMissions extends React.Component {
 
@@ -59,7 +59,7 @@ export class CMissions extends React.Component {
                             {this.state.missions.map((each, i) => {
                                 // console.log(each);
                                 // console.log(i);
-                                return <MissList key={i} title={each.parent_mission.mission_title}
+                                return <MissCard key={i} title={each.parent_mission.mission_title}
                                                  points={each.parent_mission.mission_point_value}
                                                  description={each.parent_mission.mission_description}
                                                  video={each.parent_mission.mission_video_url}

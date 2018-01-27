@@ -31,7 +31,7 @@ const rightIconMenu = (
     </IconMenu>
 );
 
-class MissList extends Component {
+class ParentList extends Component {
 
 
     constructor(props) {
@@ -53,6 +53,7 @@ class MissList extends Component {
         return (
             <ListItem
                 // leftAvatar={<Avatar src="images/ok-128.jpg"/>}
+                disabled="true"
                 style={{
                     backgroundColor: white,
                     borderStyle: 'solid',
@@ -78,4 +79,4 @@ class MissList extends Component {
     }
 }
 
-export default MissList;
+export default ParentList;
