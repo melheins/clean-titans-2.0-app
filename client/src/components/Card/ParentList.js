@@ -31,13 +31,16 @@ const rightIconMenu = (
     </IconMenu>
 );
 
+
 class ParentList extends Component {
+
 
 
     constructor(props) {
         super();
 
-        // State matches the JSON from the MongoDB Schema
+
+        // State matches the JSON from the DB Schema
         // Methods is nested object with home/work/mobile/email
         // Interactions is an array, populated from Interactions schema
         this.state = {
@@ -80,3 +83,4 @@ class ParentList extends Component {
 }
 
 export default ParentList;
+
