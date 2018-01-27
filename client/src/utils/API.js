@@ -32,5 +32,8 @@ export default {
     },
     loadParentAccount: function (id) {
         return axios.get("/api/parent/account/" + id);
+    },
+    createNewUser: function (id) {
+        return axios.post("api/parent/new" + id);
     }
 };
