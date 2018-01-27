@@ -1,7 +1,5 @@
-import React, {Component} from "react";
+import React from "react";
 import API from "../../utils/API";
-
-//import "./Nav.css";
 import TeamCard from '../../components/Card/TeamCard';
 
 export class Team extends React.Component {
@@ -12,7 +10,8 @@ export class Team extends React.Component {
     };
 
     componentDidMount() {
-        const pid=1;
+        const pid = localStorage.getItem('parentId');
+        console.log('Team - Parent Id: ' + pid);
         this.loadTeamSection(pid);
     }
 
@@ -78,3 +77,4 @@ export class Team extends React.Component {
         }
     }
 }
+

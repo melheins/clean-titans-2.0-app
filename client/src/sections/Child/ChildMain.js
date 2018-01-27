@@ -13,7 +13,8 @@ export class ChildMain extends React.Component {
     };
 
     componentDidMount() {
-        const cid = 1;
+        console.log('Mission - Child Id: ' + localStorage.getItem('childId'));
+        const cid = localStorage.getItem('childId');
         this.loadChildNavBar(cid);
     }
 

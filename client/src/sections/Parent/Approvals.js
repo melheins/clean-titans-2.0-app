@@ -4,6 +4,10 @@ import React from "react";
 
 
 export class Approvals extends React.Component {
+    state = {
+        mission_approvals: []
+    };
+
     render() {
         return (
             <div className="container">

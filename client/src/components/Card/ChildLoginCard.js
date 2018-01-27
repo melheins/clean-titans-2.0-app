@@ -15,7 +15,17 @@ class ChildLoginCard extends Component {
             first_name: this.props.first_name,
             nickname: this.props.nickname,
             avatar: this.props.avatar,
+            id: this.props.id,
         };
+        this.setChild = this.setChild.bind(this);
+    }
+
+    setChild() {
+        console.log('Mission - Child Id: ' + this.props.id);
+        //let cid = this.props.id;
+        localStorage.setItem('childId',this.props.id);
+        let cid = localStorage.getItem('childId');
+        console.log('Mission - Child Id: ' + cid);
     }
 
     render() {
@@ -31,7 +41,7 @@ class ChildLoginCard extends Component {
                                    title={this.state.first_name}/>
                         <CardText style={{padding: "8px"}}>Nickname: {this.state.nickname}</CardText>
                         <CardActions>
-                            <FlatButton label="Login" />
+                            <FlatButton label="Login" href="/child" onClick={this.setChild}/>
                         </CardActions>
                     </Card>
                 </div>
