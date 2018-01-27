@@ -1,8 +1,8 @@
 import React, {Component} from "react";
 import {Card, CardActions, CardTitle, CardText} from 'material-ui/Card';
-import Divider from 'material-ui/Divider';
-import Subheader from 'material-ui/Subheader';
-import Avatar from 'material-ui/Avatar';
+//import Divider from 'material-ui/Divider';
+//import Subheader from 'material-ui/Subheader';
+//import Avatar from 'material-ui/Avatar';
 
 
 class MissCard extends Component {

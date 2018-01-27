@@ -12,6 +12,7 @@ package-lock.json
 
 
 # misc
+keys.js
 .DS_Store
 .env.local
 .env.development.local

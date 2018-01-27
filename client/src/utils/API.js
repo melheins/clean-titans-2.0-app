@@ -25,5 +25,12 @@ export default {
     // Loads child rewards page
     loadChildNav: function (id) {
         return axios.get("/api/child/" + id);
+    },
+    // Loads child login page
+    loadChildLogin: function (id) {
+        return axios.get("/api/childlogin/" + id);
+    },
+    loadParentAccount: function (id) {
+        return axios.get("/api/parent/account/" + id);
     }
 };

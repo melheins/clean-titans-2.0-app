@@ -4,15 +4,16 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
 import {ParentMain} from "./sections/Parent";
 import {ChildMain} from "./sections/Child";
-import Auth from './Auth/Auth.js';
+import ChildLogin from "./sections/Login/ChildLogin"
+import { login } from './Auth/Auth.js';
 import "./App.css"
 
 
-const auth = new Auth();
+// const auth = new Auth();
 
 class Login extends React.Component {
     sign_user = () => {
-        auth.login();
+        login();
     };
 
     render() {
@@ -37,6 +38,7 @@ const App = () =>
                 <Route exact path="/" component={Login}/>
                 <Route path="/parent" component={ParentMain}/>
                 <Route path="/child" component={ChildMain}/>
+                <Route exact path="/childlogin" component={ChildLogin}/>
             </Switch>
         </MuiThemeProvider>
     </Router>;

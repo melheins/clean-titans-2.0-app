@@ -12,11 +12,14 @@ export class CMissions extends React.Component {
     };
 
     componentDidMount() {
-        const cid=1;
+        console.log('Mission - Child Id: ' + localStorage.getItem('childId'));
+        const cid = localStorage.getItem('childId');
+
         this.loadMissionSection(cid);
     }
 
     loadMissionSection (cid) {
+        console.log('Mission P2 - Child Id: ' + cid);
         API.loadChildMissionSec(cid)
             .then(res =>
                     // console.log(res.data)

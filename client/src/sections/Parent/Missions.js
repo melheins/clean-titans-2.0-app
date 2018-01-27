@@ -1,6 +1,6 @@
-import React, {Component} from "react";
+import React from "react";
 import API from "../../utils/API";
-import {List} from 'material-ui/List';
+import List from 'material-ui/List';
 
 //import "./Nav.css";
 import MissList from '../../components/Card/MissList';
@@ -13,7 +13,8 @@ export class Missions extends React.Component {
     };
 
     componentDidMount() {
-        const pid=1;
+        const pid = localStorage.getItem('parentId');
+        console.log('Missions - Parent Id: ' + pid);
         this.loadMissionSection(pid);
     }
 
@@ -80,3 +81,4 @@ export class Missions extends React.Component {
         }
     }
 }
+
