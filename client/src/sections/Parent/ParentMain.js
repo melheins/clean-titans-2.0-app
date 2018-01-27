@@ -16,15 +16,24 @@ export class ParentMain extends React.Component {
 
         let token = localStorage.getItem('id_token');
 
-        let decoded = jwtDecode(token);
-        let userId = decoded.sub;
-        console.log(decoded);
+        let userInfo = jwtDecode(token);
+        let userId = userInfo.sub;
+        console.log(userInfo);
         console.log(userId);
 
         let pid = 0;
 
         API.loadParentAccount(userId)
             .then(function (res) {
+                if (!res.data.id) {
+                    let newParent = {
+                        first_name: res.data.given_name,
+                        last_name: res.data.family_name,
+                        uid: res.data.id
+                    }
+                    API.createNewUser(newParent);
+                }
+
                     console.log('Res Data ' + res.data);
                     pid = res.data.id;
                     console.log('Parent Id: ' + pid);
@@ -32,11 +41,6 @@ export class ParentMain extends React.Component {
                     console.log('Local - Parent Id: ' + localStorage.getItem('parentId'));
                 }
             )
-            .then(function (res) {
-                if (res.data.id === 0) {
-                    API.createNewUser(userId)
-                }
-            })
             .catch(err => console.log(err));
 
 

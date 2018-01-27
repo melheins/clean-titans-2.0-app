@@ -4,13 +4,12 @@ const express = require("express");
 
 //PARENT ROUTES
 
-router.post('/parent/new', req, res) => {
-    console.log(req.params.id);
-
-    const newParent = req.params.id;
-
-    db.parents.addOne
-}
+router.post("/", (req,res) => {
+   db.parents.create(req.body)
+       .then(function (newParent) {
+           res.json(newParent)
+       })
+});
 
 router.get('/account/:id', (req, res) => {
     console.log("test");
