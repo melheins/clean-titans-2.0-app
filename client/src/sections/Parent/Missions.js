@@ -3,7 +3,7 @@ import API from "../../utils/API";
 import List from 'material-ui/List';
 
 //import "./Nav.css";
-import MissList from '../../components/Card/MissList';
+import ParentList from '../../components/Card/ParentList';
 
 export class Missions extends React.Component {
 
@@ -59,7 +59,7 @@ export class Missions extends React.Component {
                                 // console.log(each);
                                 // console.log(i);
                                 return (
-                                        <MissList key={i} title={each.mission_title} points={each.mission_point_value}
+                                        <ParentList key={i} title={each.mission_title} points={each.mission_point_value}
                                                   description={each.mission_description} video={each.mission_video_url}
                                         />
                                     );

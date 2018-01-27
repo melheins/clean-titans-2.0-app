@@ -1,6 +1,6 @@
 import React from "react";
 import API from "../../utils/API";
-import RewCard from '../../components/Card/RewCard';
+import ParentList from '../../components/Card/ParentList';
 
 export class Rewards extends React.Component {
 
@@ -55,7 +55,7 @@ export class Rewards extends React.Component {
                             {this.state.rewards.map((each, i) => {
                                 // console.log(each);
                                 // console.log(i);
-                                return <RewCard key={i} title={each.reward_name} points={each.reward_points_required}
+                                return <ParentList key={i} title={each.reward_name} points={each.reward_points_required}
                                                 description={each.reward_description}
                                 />;
                             })}
