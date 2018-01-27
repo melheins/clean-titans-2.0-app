@@ -1,7 +1,8 @@
 import React, {Component} from "react";
 import {Card, CardActions, CardTitle, CardText} from 'material-ui/Card';
 import CardImg from './CardImg'
-import "./TeamCard.css"
+import {grey400, darkBlack, black, white} from 'material-ui/styles/colors';
+
 
 class TeamCard extends Component {
     constructor(props) {
@@ -24,14 +25,22 @@ class TeamCard extends Component {
             <div className={"col-lg-4 col-md-12 mb-3"}>
                 <div>
                     <Card className={"p-2"} style={{
-                        backgroundColor: 'transparent'
+                        backgroundColor: white,
+                        borderStyle: 'solid',
+                        borderColor: black,
+                        borderWidth: '5px', minHeight:'150px'
                     }}>
                         {console.log(this.props.avatar)}
-                        <CardImg imgSrc={this.props.avatar}/>
+                        <div style={{float:'right'}}><CardImg imgSrc={this.props.avatar} /></div>
+
                         <CardTitle style={{padding: "8px"}}
                                    title={this.state.first_name}/>
-                        <CardText style={{padding: "8px"}}>Nickname: {this.state.nickname}</CardText>
-                        <CardText style={{padding: "8px"}}>Points: {this.state.points}</CardText>
+                        <CardText style={{padding: "8px"}}>
+                            <div>
+                                <p>Nickname: {this.state.nickname}</p>
+                                <p>Points: {this.state.points}</p>
+                            </div>
+                        </CardText>
                     </Card>
                 </div>
             </div>
