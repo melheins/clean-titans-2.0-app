@@ -1,15 +1,15 @@
-import React, {Component} from "react";
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import React from "react";
 import ChildLoginCard from "../../components/Card/ChildLoginCard";
 import API from "../../utils/API";
 
-export class ChildLogin extends React.Component {
+export default class ChildLogin extends React.Component {
     state = {
         children: []
     };
 
     componentDidMount() {
-        const pid=1;
+        const pid = localStorage.getItem('parentId');
+        console.log('Team - Parent Id: ' + pid);
         this.loadChildLogin(pid);
     }
 
@@ -29,7 +29,7 @@ export class ChildLogin extends React.Component {
                     <div className={'row'}>
                         {this.state.children.map((each, i) => {
                             return <ChildLoginCard key={i} first_name={each.first_name} nickname={each.nickname}
-                                                    avatar={each.avatar.avatar_url}
+                                                    avatar={each.avatar.avatar_url} id={each.id}
                             />;
                         })}
                     </div>

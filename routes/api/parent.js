@@ -2,6 +2,24 @@ const router = require("express").Router();
 const db = require("../../models");
 
 //PARENT ROUTES
+router.get('/account/:id', (req, res) => {
+    console.log("test");
+    console.log(req.params.id);
+    const authId = req.params.id;
+
+    db.parents.findOne({
+        where: {
+            uid: authId
+        }
+    }).then(function (parentData) {
+
+        // const children = parentData;
+        //console.log(parentData);
+        res.json(parentData);
+    })
+});
+
+
 router.get('/team/:id', (req, res) => {
     console.log("test");
     console.log(req.params.id);
@@ -14,8 +32,8 @@ router.get('/team/:id', (req, res) => {
         include: [db.avatars]
     }).then(function (parentData) {
 
-       // const children = parentData;
-       // console.log(parentData);
+        // const children = parentData;
+        // console.log(parentData);
         res.json(parentData);
     })
 });

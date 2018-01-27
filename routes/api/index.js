@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const parentRoutes = require("./parent");
 const childRoutes = require("./child");
+const db = require("../../models");
+
 
 // Parent routes
 router.use("/parent", parentRoutes);
@@ -16,9 +18,7 @@ router.get('/childlogin/:id', (req, res) => {
             parentId
         },
         include: [
-            db.avatars,
-            db.nickname,
-            db.first_name,
+            db.avatars
         ]
     }).then(function (parentData) {
         res.json(parentData);

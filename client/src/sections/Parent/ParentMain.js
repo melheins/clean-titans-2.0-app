@@ -1,19 +1,13 @@
 import React from "react";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import {Approvals} from "./Approvals";
-import {Team} from "./Team";
-import Missions from "./Missions";
-import {Rewards} from "./Rewards";
+import {Approvals, Team, Missions, Rewards} from "./index.js";
 import {ParentNav} from "../../components/Nav";
 import {getIdToken, setIdToken} from '../../Auth/Auth';
 import jwtDecode from "jwt-decode";
-import {ChildLogin} from "../Login/ChildLogin";
+//import ChildLogin from "../Login/ChildLogin";
+import API from "../../utils/API";
 
 export class ParentMain extends React.Component {
-
-    state = {
-        pid: 0
-    };
 
     componentDidMount() {
 
@@ -23,7 +17,23 @@ export class ParentMain extends React.Component {
         let token = localStorage.getItem('id_token');
 
         let decoded = jwtDecode(token);
+        let userId = decoded.sub;
         console.log(decoded);
+        console.log(userId);
+
+        let pid = 0;
+
+        API.loadParentAccount(userId)
+            .then(function (res) {
+                    console.log('Res Data ' + res.data);
+                    pid = res.data.id;
+                    console.log('Parent Id: ' + pid);
+                    localStorage.setItem('parentId',pid);
+                    console.log('Local - Parent Id: ' + localStorage.getItem('parentId'));
+                }
+            )
+            .catch(err => console.log(err));
+
 
         getIdToken();
 
@@ -42,7 +52,6 @@ export class ParentMain extends React.Component {
                             <Route exact path="/parent/team" component={Team}/>
                             <Route exact path="/parent/rewards" component={Rewards}/>
                             <Route exact path="/parent/missions" component={Missions}/>
-                            <Route exact path="/childlogin" component={ChildLogin}/>
                         </Switch>
                     </div>
                 </div>
@@ -51,4 +60,3 @@ export class ParentMain extends React.Component {
         )
     }
 }
-

@@ -1,7 +1,5 @@
-import React, {Component} from "react";
+import React from "react";
 import API from "../../utils/API";
-
-//import "./Nav.css";
 import RewCard from '../../components/Card/RewCard';
 
 export class Rewards extends React.Component {
@@ -12,11 +10,12 @@ export class Rewards extends React.Component {
     };
 
     componentDidMount() {
-        const pid=1;
+        const pid = localStorage.getItem('parentId');
+        console.log('Rewards - Parent Id: ' + pid);
         this.loadRewardSection(pid);
     }
 
-    loadRewardSection (pid) {
+    loadRewardSection(pid) {
         API.loadRewardSec(pid)
             .then(res =>
                     // console.log(res.data)
@@ -77,3 +76,4 @@ export class Rewards extends React.Component {
         }
     }
 }
+
