@@ -41,6 +41,10 @@ h1 {
     font-family: "Avengeance Mightiest Avenger", Helvetica, Arial, sans-serif;
 }
 
-button {
+.loginBtn {
     font-family: "Comic Geek", Helvetica, Arial, sans-serif;
+}
+
+.welcome {
+
 }

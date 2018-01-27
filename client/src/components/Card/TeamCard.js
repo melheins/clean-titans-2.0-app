@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import {Card, CardActions, CardTitle, CardText} from 'material-ui/Card';
 import Avatar from 'material-ui/Avatar';
 import CardImg from './CardImg'
+import "./TeamCard.css"
 
 class TeamCard extends Component {
     constructor(props) {

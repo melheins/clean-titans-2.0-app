@@ -11,6 +11,10 @@ import "./App.css"
 
 // const auth = new Auth();
 
+const btnStyle = {
+    font-family: "Comic Geek", Helvetica, Arial, sans-serif;
+}
+
 class Login extends React.Component {
     sign_user = () => {
         login();
@@ -24,7 +28,7 @@ class Login extends React.Component {
                 </div>
                 <div className={"col-lg-6 col-md-8 col-sm-10"}>
                     <h1>Welcome Heroes!</h1>
-                    <RaisedButton onClick={this.sign_user}>Click to Sign In!</RaisedButton>
+                    <RaisedButton style={btnStyle} onClick={this.sign_user}>Click to Sign In!</RaisedButton>
                 </div>
             </div>
         );
