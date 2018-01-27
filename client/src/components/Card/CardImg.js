@@ -1,11 +1,9 @@
 import React from 'react';
-
-//import apprImg from '../../assets/childavatars/supergirl.jpg'
-
+import "./List.css";
 
 const CardImg = (props) => (
 
-    <img className={"img-thumbnail"}  src={require(`../../assets/childavatars/${props.imgSrc}.jpg`)} alt={props.imgSrc}/>
+    <img className={"img-thumbnail"} style={{height:'150px'}} src={require(`../../assets/childavatars/${props.imgSrc}.jpg`)} alt={props.imgSrc}/>
 
 );
 

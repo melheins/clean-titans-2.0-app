@@ -19,13 +19,13 @@ class Login extends React.Component {
 
     render() {
         return (
-            <div className={"row"}>
+            <div className={"row"} style={{textAlign:'center',marginTop: '200px'}}>
                 <div className={"col-lg-3 col-md-2 col-sm-1"}>
 
                 </div>
                 <div className={"col-lg-6 col-md-8 col-sm-10"}>
                     <h1>Welcome Heroes!</h1>
-                    <RaisedButton onClick={this.sign_user}>Click to Sign In!</RaisedButton>
+                    <RaisedButton backgroundColor="red" style={{textAlign:'center',padding: '10px',backgroundColor:'red',fontWeight:'bold'}} onClick={this.sign_user}>Click to Sign In!</RaisedButton>
                 </div>
             </div>
         );
