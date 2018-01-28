@@ -4,7 +4,7 @@ const express = require("express");
 
 //PARENT ROUTES
 
-router.post("/", (req,res) => {
+router.post("/", (req, res) => {
    db.parents.create(req.body)
        .then(function (newParent) {
            res.json(newParent)

@@ -31,6 +31,7 @@ export default {
         return axios.get("/api/childlogin/" + id);
     },
     loadParentAccount: function (userId) {
+        console.log("userInfo" + userId);
         return axios.get("/api/parent/account/" + userId);
     },
     createNewUser: function (newParent) {
