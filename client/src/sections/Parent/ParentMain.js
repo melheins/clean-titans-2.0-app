@@ -23,22 +23,23 @@ export class ParentMain extends React.Component {
 
         let pid = 0;
 
-        API.loadParentAccount(userInfo)
+        API.loadParentAccount(userId)
             .then(function (res) {
+                console.log("load res: " + JSON.stringify(res))
                 if (!res.data) {
                     let newParent = {
                         first_name: userInfo.data.nickname,
                         last_name: userInfo.data.nickname,
                         uid: res.data.id
                     }
-                    API.createNewUser(newParent);
+                    API.createNewUser(newParent)
+                    .then(function(res) {console.log("New User: " + res)});
                 }
-
-                    console.log('Res Data ' + res.data);
-                    pid = userId;
-                    console.log('Parent Id: ' + pid);
-                    localStorage.setItem('parentId',pid);
-                    console.log('Local - Parent Id: ' + localStorage.getItem('parentId'));
+                console.log('Res Data ' + res.data);
+                pid = userId;
+                console.log('Parent Id: ' + pid);
+                localStorage.setItem('parentId',pid);
+                console.log('Local - Parent Id: ' + localStorage.getItem('parentId'));
                 }
             )
             .catch(err => console.log(err));
