@@ -8,6 +8,7 @@ router.post("/", (req,res) => {
    db.parents.create(req.body)
        .then(function (newParent) {
            res.json(newParent)
+           console.log(newParent);
        })
 });
 
