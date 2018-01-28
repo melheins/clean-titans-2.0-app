@@ -30,8 +30,8 @@ export default {
     loadChildLogin: function (id) {
         return axios.get("/api/childlogin/" + id);
     },
-    loadParentAccount: function (id) {
-        return axios.get("/api/parent/account/" + id);
+    loadParentAccount: function (userInfo) {
+        return axios.get("/api/parent/account/", userInfo);
     },
     createNewUser: function (newParent) {
         return axios.post("api/parent", newParent);
