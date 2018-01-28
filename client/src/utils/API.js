@@ -35,7 +35,7 @@ export default {
         return axios.get("/api/parent/account/" + userId);
     },
     createNewUser: function (newParent) {
-        console.log("newParent" + newParent);
+        console.log("new Parent API Call: " + newParent);
         return axios.post("api/parent", newParent);
     }
 };

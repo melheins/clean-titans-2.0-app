@@ -33,15 +33,16 @@ export class ParentMain extends React.Component {
                         uid: userInfo.data.id
                     };
                     console.log(newParent);
-                    API.createNewUser(newParent);
-                    .then(function(res) {console.log("New User: " + res)});
+                    API.createNewUser(newParent)
+                    .then(function(res) {
+                        console.log("New User: " + res)
+                    });
                 }
-
-                    console.log('Res Data ' + res.data);
-                    pid = userId;
-                    console.log('Parent Id: ' + pid);
-                    localStorage.setItem('parentId',pid);
-                    console.log('Local - Parent Id: ' + localStorage.getItem('parentId'));
+                console.log('Res Data ' + res.data);
+                pid = userId;
+                console.log('Parent Id: ' + pid);
+                localStorage.setItem('parentId',pid);
+                console.log('Local - Parent Id: ' + localStorage.getItem('parentId'));
                 }
             )
             .catch(err => console.log(err));
