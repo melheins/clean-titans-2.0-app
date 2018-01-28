@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default {
-
+    //<--PARENT-->
     // Loads team page
     loadTeamSec: function (id) {
         return axios.get("/api/parent/team/" + id);
@@ -33,4 +33,10 @@ export default {
     loadParentAccount: function (id) {
         return axios.get("/api/parent/account/" + id);
     }
+
+    //<--CHILD-->
+    updateChildMission: function (id, data) {
+        return axios.put("/api/child/missions/" +id, data)
+    }
+    updateChildReward: function ()
 };
