@@ -23,15 +23,18 @@ export class ParentMain extends React.Component {
 
         let pid = 0;
 
-        API.loadParentAccount(userInfo)
+        API.loadParentAccount(userId)
             .then(function (res) {
+                console.log("load res: " + JSON.stringify(res))
                 if (!res.data) {
                     let newParent = {
                         first_name: userInfo.data.nickname,
                         last_name: userInfo.data.nickname,
-                        uid: res.data.id
-                    }
+                        uid: userInfo.data.id
+                    };
+                    console.log(newParent);
                     API.createNewUser(newParent);
+                    .then(function(res) {console.log("New User: " + res)});
                 }
 
                     console.log('Res Data ' + res.data);
