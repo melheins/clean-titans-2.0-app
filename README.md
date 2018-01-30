@@ -2,10 +2,12 @@
 
 ## Overview
 An app to teach kids responsibility.  Kids earn points by completing daily tasks. Points are awarded when parent confirms tasks are complete.
-Children can redeem rewards for comic books or parent approved rewards such as ice cream, tv time.
+Children can redeem points for parent approved rewards such as ice cream and tv time.
 
-## App Specifications
-TBD
+## Links
+App: https://clean-titans-2.herokuapp.com/
+
+Wireframes: https://xd.adobe.com/view/355a80f1-2b1a-462c-8d27-45aa9476b3f3/
 
 ## Authors
 * [Valarie Regas](https://github.com/ValarieR)
@@ -17,13 +19,32 @@ TBD
 
 ## Technologies used
 NPM Packages Used
-*   
+
+    "auth0-js": "^9.0.2",
+    "axios": "^0.16.2",
+    "body-parser": "^1.17.2",
+    "express": "^4.16.2",
+    "express-jwt": "^5.3.0",
+    "jwks-rsa": "^1.2.1",
+    "jwt-decode": "^2.2.0",
+    "material-ui": "^0.20.0",
+    "mysql": "^2.15.0",
+    "mysql2": "^1.5.1",
+    "path": "^0.12.7",
+    "react-router-dom": "^4.2.2",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-router-dom": "^4.1.2",
+    "react-scripts": "1.0.14",
+    "react-material-icons": "^1.0.3",
+    "sequelize": "^4.26.0"
 
 Additional Programs
-*   
+*   [Adobe XD](https://www.adobe.com/products/xd.html) - Wireframes
 
 Project Management
 *   [Google Drive](https://drive.google.com/)
+*   [GitHub Issues](https://github.com/melheins/clean-titans-2.0-app/issues)
 
 
 ## Future Work
@@ -31,47 +52,3 @@ Project Management
 Future work on this project includes but is not limited to the following:
 
 1) 
-
-
-
-
-## About This Boilerplate
-
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
-
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
-
-## Starting the app locally
-
-Start by installing front and backend dependencies. While in this directory, run the following commands:
-
-```
-yarn install
-cd client
-yarn install
-cd ..
-``
-
-After both installations complete, run the following command in your terminal:
-
-```
-yarn start
-```
-
-That's it, your app should be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
-
-## Deployment (Heroku)
-
-After confirming that you have an up to date git repository and a Heroku app created, complete the following:
-
-1. Build the React app for production by running the following command:
-
-```
-yarn build
-```
-
-2. Add and commit all changes to git
-
-3. Push to Heroku
-
-If all previous steps were followed correctly, your application should be deployed to Heroku!
