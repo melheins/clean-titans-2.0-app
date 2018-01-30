@@ -1,7 +1,23 @@
 import axios from "axios";
 
 export default {
-
+    //<--PARENT-->
+    loadParentAccount: function (userId) {
+        console.log("userInfo" + userId);
+        return axios.get("/api/parent/account/" + userId);
+    },
+    createNewUser: function (newParent) {
+        console.log("new Parent API Call: " + newParent);
+        return axios.post("api/parent", newParent);
+    },
+    // Loads Mission Approvals
+    loadMisApprovalsSec: function (id) {
+        return axios.get("/api/parent/misappr/" + id);
+    },
+    // Loads Reward Approvals
+    loadRewApprovalsSec: function (id) {
+        return axios.get("/api/parent/rewappr/" + id);
+    },
     // Loads team page
     loadTeamSec: function (id) {
         return axios.get("/api/parent/team/" + id);
@@ -14,6 +30,17 @@ export default {
     loadRewardSec: function (id) {
         return axios.get("/api/parent/rewards/" + id);
     },
+    // Loads child login page
+    loadChildLogin: function (id) {
+        return axios.get("/api/childlogin/" + id);
+    },
+
+
+    //<--CHILD-->
+    // Loads child nav
+    loadChildNav: function (id) {
+        return axios.get("/api/child/" + id);
+    },
     // Loads child missions page
     loadChildMissionSec: function (id) {
         return axios.get("/api/child/missions/" + id);
@@ -22,23 +49,10 @@ export default {
     loadChildRewardSec: function (id) {
         return axios.get("/api/child/rewards/" + id);
     },
-    // Loads child rewards page
-    loadChildNav: function (id) {
-        return axios.get("/api/child/" + id);
+    updateChildMission: function (id, data) {
+        return axios.put("/api/child/missions/updatestatus/" +id, data)
     },
-    // Loads child login page
-    loadChildLogin: function (id) {
-        return axios.get("/api/childlogin/" + id);
-    },
-    loadParentAccount: function (userId) {
-        console.log("userInfo" + userId);
-        return axios.get("/api/parent/account/" + userId);
-    },
-    createNewUser: function (newParent) {
-        console.log("new Parent API Call: " + newParent);
-        return axios.post("api/parent", newParent);
-    },
-    loadChildInfo: function () {
-        return axios.post("api/parent/team");
+    purchaseChildReward: function (id, data) {
+        return axios.put("/api/child/rewards/purchase/" +id, data)
     }
 };

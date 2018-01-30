@@ -28,6 +28,11 @@ module.exports = function (sequelize, DataTypes) {
                 allowNull: false
             }
         });
+        active_missions.belongsTo(models.parents, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
     };
     return active_missions
 };

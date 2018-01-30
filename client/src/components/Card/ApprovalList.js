@@ -8,8 +8,8 @@ import React, {Component} from "react";
 //import MenuItem from 'material-ui/MenuItem';
 import {darkBlack, black, white} from 'material-ui/styles/colors';
 import {ListItem} from 'material-ui/List';
-import ModeEditIcon from 'react-material-icons/icons/editor/mode-edit';
-import DeleteIcon from 'react-material-icons/icons/action/delete';
+import CheckIcon from 'react-material-icons/icons/action/check-circle';
+import CancelIcon from 'react-material-icons/icons/navigation/cancel';
 
 import "./List.css";
 
@@ -28,7 +28,7 @@ class ParentList extends Component {
             title: props.title,
             points: props.points,
             description: props.description,
-            video: props.video,
+            child: props.name,
         };
     }
 
@@ -48,13 +48,13 @@ class ParentList extends Component {
                 rightIconButton={
                     <div style={{color: black, fontWeight: 'bold', top: '30px'}}>
                         <span style={{fontSize: '20px', paddingRight: '10px'}}>{this.state.points}pts</span>
-                        <span style={{height:'48px',width:'48px', paddingRight: '10px'}}><ModeEditIcon/></span>
-                        <span style={{fontSize: '30px', paddingRight: '10px'}}><DeleteIcon/></span>
+                        <span style={{height:'48px',width:'48px', paddingRight: '10px'}}><CheckIcon/></span>
+                        <span style={{fontSize: '30px', paddingRight: '10px'}}><CancelIcon/></span>
                     </div>}
-                primaryText={<span style={{fontWeight: 'bold', fontSize: '18px'}}>{this.state.title}</span>}
+                primaryText={<span style={{fontWeight: 'bold', fontSize: '18px'}}>{this.state.child}</span>}
                 secondaryText={
                     <p>
-                        <span style={{color: darkBlack}}>{this.state.description}</span>
+                        <span style={{color: darkBlack}}>{this.state.title}</span>
                     </p>
                 } secondaryTextLines={2}
 

@@ -57,13 +57,12 @@ export class CMissions extends React.Component {
                         <div className={'row'}>
                             {console.log(this.state.missions)}
                             {this.state.missions.map((each, i) => {
-                                // console.log(each);
-                                // console.log(i);
                                 return <MissCard key={i} title={each.parent_mission.mission_title}
                                                  points={each.parent_mission.mission_point_value}
                                                  description={each.parent_mission.mission_description}
                                                  video={each.parent_mission.mission_video_url}
                                                  status={each.mission_status}
+                                                 mid={each.id}
                                 />;
                             })}
                         </div>

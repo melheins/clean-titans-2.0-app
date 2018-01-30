@@ -1,15 +1,14 @@
 const router = require("express").Router();
 const db = require("../../models");
-const express = require("express");
 
 //PARENT ROUTES
 
 router.post("/", (req, res) => {
-   db.parents.create(req.body)
-       .then(function (newParent) {
-           res.json(newParent)
-           console.log(newParent);
-       })
+    db.parents.create(req.body)
+        .then(function (newParent) {
+            res.json(newParent);
+            //console.log(newParent);
+        })
 });
 
 router.get('/account/:id', (req, res) => {
@@ -22,13 +21,40 @@ router.get('/account/:id', (req, res) => {
             uid: authId
         }
     }).then(function (parentData) {
-
-        // const children = parentData;
-        //console.log(parentData);
         res.json(parentData);
     })
 });
 
+// route for new users
+//router.post('/parent');
+
+
+router.get('/misappr/:id', (req, res) => {
+    const parentId = req.params.id;
+
+    db.active_missions.findAll({
+        where: {
+            parentId,
+            mission_status: 'C'
+        },
+        include: [db.parent_missions, db.children]
+    }).then(function (missionData) {
+        res.json(missionData);
+    })
+});
+
+router.get('/rewappr/:id', (req, res) => {
+    const parentId = req.params.id;
+    db.active_rewards.findAll({
+        where: {
+            parentId,
+            reward_status: 'R'
+        },
+        include: [db.parent_rewards, db.children]
+    }).then(function (rewardData) {
+        res.json(rewardData);
+    })
+});
 
 router.get('/team/:id', (req, res) => {
     console.log("test");
@@ -41,8 +67,6 @@ router.get('/team/:id', (req, res) => {
         },
         include: [db.avatars]
     }).then(function (parentData) {
-
-        // const children = parentData;
         // console.log(parentData);
         res.json(parentData);
     })
@@ -57,7 +81,6 @@ router.get('/missions/:id', (req, res) => {
         }
     }).then(function (data) {
         //console.log(data);
-        //const missions = data;
         res.json(data);
     })
 });
@@ -70,7 +93,6 @@ router.get('/rewards/:id', (req, res) => {
         }
     }).then(function (data) {
         //console.log(data);
-        //const rewards = data;
         res.json(data);
     })
 });
