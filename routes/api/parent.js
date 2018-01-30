@@ -7,7 +7,7 @@ router.post("/", (req, res) => {
     db.parents.create(req.body)
         .then(function (newParent) {
             res.json(newParent);
-            console.log(newParent);
+            //console.log(newParent);
         })
 });
 
@@ -21,8 +21,6 @@ router.get('/account/:id', (req, res) => {
             uid: authId
         }
     }).then(function (parentData) {
-
-        //console.log(parentData);
         res.json(parentData);
     })
 });
@@ -39,12 +37,8 @@ router.get('/misappr/:id', (req, res) => {
             parentId,
             mission_status: 'C'
         },
-        //include: [db.active_rewards, active_missions]
-        include: [db.parent_missions,db.children]
-        //include: [{ model: db.active_missions, where: {mission_status: 'C'}, required: false },db.parent_missions,]
-        //include: [{model: db.active_missions, where: {mission_status: 'C'}, required: false,include: [{model: db.parent_missions, required: false}]},{model: db.active_rewards, where: {reward_status: 'R'}, required: false,include: [{model: db.parent_rewards, required: false}]}],
+        include: [db.parent_missions, db.children]
     }).then(function (missionData) {
-        // console.log(parentData);
         res.json(missionData);
     })
 });
@@ -56,7 +50,7 @@ router.get('/rewappr/:id', (req, res) => {
             parentId,
             reward_status: 'R'
         },
-        include: [db.parent_rewards,db.children]
+        include: [db.parent_rewards, db.children]
     }).then(function (rewardData) {
         res.json(rewardData);
     })
