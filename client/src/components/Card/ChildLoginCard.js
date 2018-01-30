@@ -1,7 +1,7 @@
 import React, {Component} from "react";
-import {Card, CardActions, CardTitle, CardText} from 'material-ui/Card';
+import {Card, CardActions, CardTitle} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
-import Avatar from 'material-ui/Avatar';
+//import Avatar from 'material-ui/Avatar';
 import CardImg from './CardImg'
 
 class ChildLoginCard extends Component {

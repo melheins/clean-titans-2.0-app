@@ -23,12 +23,17 @@ module.exports = function (sequelize, DataTypes) {
                 allowNull: false
             }
         });
+        active_rewards.belongsTo(models.parents, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
 
     };
     return active_rewards
 };
 
-
+/**
 
 let newParent = {
   first_name: loca
@@ -37,3 +42,4 @@ let newParent = {
 }
 
 API.createParent(newParent)
+**/

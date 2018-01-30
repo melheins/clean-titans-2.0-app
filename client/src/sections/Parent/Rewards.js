@@ -1,6 +1,7 @@
 import React from "react";
 import API from "../../utils/API";
 import ParentList from '../../components/Card/ParentList';
+import List from 'material-ui/List';
 
 export class Rewards extends React.Component {
 
@@ -52,13 +53,14 @@ export class Rewards extends React.Component {
                     <div>
                         <div className={'row'}>
                             {console.log(this.state.rewards)}
-                            {this.state.rewards.map((each, i) => {
+                            <List>{this.state.rewards.map((each, i) => {
                                 // console.log(each);
                                 // console.log(i);
-                                return <ParentList key={i} title={each.reward_name} points={each.reward_points_required}
+                                return ( <ParentList key={i} title={each.reward_name} points={each.reward_points_required}
                                                 description={each.reward_description}
-                                />;
-                            })}
+                                />
+                            );
+                            })}</List>
                         </div>
                     </div>
                 </div>

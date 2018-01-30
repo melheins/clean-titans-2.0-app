@@ -18,28 +18,28 @@ export class ParentMain extends React.Component {
 
         let userInfo = jwtDecode(token);
         let userId = userInfo.sub;
-        console.log(userInfo);
-        console.log(userId);
+       // console.log(userInfo);
+       // console.log(userId);
 
         let pid = 0;
 
         API.loadParentAccount(userId)
             .then(function (res) {
-                console.log("load res: " + JSON.stringify(res))
+                console.log("load res: " + JSON.stringify(res));
                 if (!res.data) {
                     let newParent = {
                         first_name: userInfo.nickname,
                         last_name: userInfo.nickname,
                         uid: userInfo.sub
                     };
-                    console.log(newParent);
+                   // console.log(newParent);
                     API.createNewUser(newParent)
                     .then(function(res) {
                         console.log("New User: " + res)
                     });
                 }
-                console.log('Res Data ' + res.data);
-                pid = userId;
+               // console.log('Res Data ' + res.data);
+                pid = res.data.id;
                 console.log('Parent Id: ' + pid);
                 localStorage.setItem('parentId',pid);
                 console.log('Local - Parent Id: ' + localStorage.getItem('parentId'));
