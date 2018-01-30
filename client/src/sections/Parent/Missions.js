@@ -1,15 +1,12 @@
 import React from "react";
 import API from "../../utils/API";
 import List from 'material-ui/List';
-
-//import "./Nav.css";
 import ParentList from '../../components/Card/ParentList';
 
 export class Missions extends React.Component {
 
     state = {
-        missions: [],
-        sampleMissions: [],
+        missions: []
     };
 
     componentDidMount() {
@@ -28,23 +25,7 @@ export class Missions extends React.Component {
             .catch(err => console.log(err));
     };
 
-    /** constructor() {
-        super();
-        this.sampleChildren = [
-            {
-                first_name: "Maya",
-                nickname: "Supergirlie",
-                points: "5",
-                avatar: "1"
-            },
-            {
-                first_name: "Tim",
-                nickname: "Tiny",
-                points: "15",
-                avatar: "1"
-            },
-        ]
-    } **/
+
 
     render() {
 

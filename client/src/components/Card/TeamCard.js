@@ -1,7 +1,7 @@
 import React, {Component} from "react";
-import {Card, CardActions, CardTitle, CardText} from 'material-ui/Card';
+import {Card, CardTitle, CardText} from 'material-ui/Card';
 import CardImg from './CardImg'
-import {grey400, darkBlack, black, white} from 'material-ui/styles/colors';
+import {black, white} from 'material-ui/styles/colors';
 
 
 class TeamCard extends Component {
