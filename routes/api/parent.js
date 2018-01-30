@@ -40,7 +40,7 @@ router.get('/misappr/:id', (req, res) => {
             mission_status: 'C'
         },
         //include: [db.active_rewards, active_missions]
-        include: [db.parent_missions]
+        include: [db.parent_missions,db.children]
         //include: [{ model: db.active_missions, where: {mission_status: 'C'}, required: false },db.parent_missions,]
         //include: [{model: db.active_missions, where: {mission_status: 'C'}, required: false,include: [{model: db.parent_missions, required: false}]},{model: db.active_rewards, where: {reward_status: 'R'}, required: false,include: [{model: db.parent_rewards, required: false}]}],
     }).then(function (missionData) {
@@ -56,7 +56,7 @@ router.get('/rewappr/:id', (req, res) => {
             parentId,
             reward_status: 'R'
         },
-        include: [db.parent_rewards]
+        include: [db.parent_rewards,db.children]
     }).then(function (rewardData) {
         res.json(rewardData);
     })
