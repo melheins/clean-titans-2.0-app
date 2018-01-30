@@ -1,7 +1,7 @@
 import React from "react";
 import API from "../../utils/API";
 import List from 'material-ui/List';
-import ParentList from '../../components/Card/ParentList';
+import ApprovalList from '../../components/Card/ApprovalList';
 
 export class Approvals extends React.Component {
 
@@ -47,20 +47,22 @@ export class Approvals extends React.Component {
                     <div>
                         <div className={'row'}>
                             {console.log(this.state.missionsAppr)}
+                            <h2>Missions</h2>
                             <List>{this.state.missionsAppr.map((each, m) => {
                                 return (
-                                    <ParentList key={m} title={each.parent_mission.mission_title} points={each.mission_point_value}
-                                                description={each.mission_description} video={each.mission_video_url}
+                                    <ApprovalList key={m} title={each.parent_mission.mission_title} points={each.parent_mission.mission_point_value}
+                                                description={each.parent_mission.mission_description} name={each.child.first_name}
                                     />
                                 );
                             })}</List>
                         </div>
                         <div className={'row'}>
                             {console.log(this.state.rewardsAppr)}
+                            <h2>Rewards</h2>
                             <List>{this.state.rewardsAppr.map((each, r) => {
                                 return (
-                                    <ParentList key={r} title={each.parent_reward.reward_name} points={each.reward_points_required}
-                                                description={each.reward_description}
+                                    <ApprovalList key={r} title={each.parent_reward.reward_name} points={each.parent_reward.reward_points_required}
+                                                description={each.parent_reward.reward_description} name={each.child.first_name}
                                     />
                                 );
                             })}</List>
@@ -72,9 +74,9 @@ export class Approvals extends React.Component {
         else {
             return (
                 <div className="container">
-                    <h1>Missions</h1>
+                    <h1>Approvals</h1>
                     <div>
-                        <p>There are no missions on file</p>
+                        <p>There are no missions or Rewards to approve.</p>
                     </div>
                 </div>
             );
