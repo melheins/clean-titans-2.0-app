@@ -1,10 +1,10 @@
 import React from "react";
 import API from "../../utils/API";
-import TeamCard from '../../components/Card/TeamCard';
+import NewChild from '../../components/Card/addChildCard';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 
-export class Team extends React.Component {
+export class AddChild extends React.Component {
 
     state = {
         children: [],
@@ -14,18 +14,8 @@ export class Team extends React.Component {
     componentDidMount() {
         const pid = localStorage.getItem('parentId');
         console.log('Team - Parent Id: ' + pid);
-        this.loadTeamSection(pid);
+        this.loadChildInfo();
     }
-
-    loadTeamSection (pid) {
-        API.loadTeamSec(pid)
-            .then(res =>
-                    // console.log(res.data)
-                    this.setState({children: res.data})
-                //this.setState({children: JSON.stringify(res.data)})
-            )
-            .catch(err => console.log(err));
-    };
 
 
 
@@ -53,17 +43,17 @@ export class Team extends React.Component {
             return (
                 <div className="container">
                     <h1>Team</h1>
-                    <FloatingActionButton backgroundColor="red" onClick={this.newChild}>
+                    <FloatingActionButton style={backgroundColor="red"} onClick={this.newChild}>
                         <ContentAdd />
                     </FloatingActionButton>
                     <div>
                         <div className={'row'}>
                             {console.log(this.state.children)}
                             {this.state.children.map((each, i) => {
-                               // console.log(each);
-                               // console.log(i);
+                                // console.log(each);
+                                // console.log(i);
                                 return <TeamCard key={i} first_name={each.first_name} nickname={each.nickname}
-                                                  points={each.points} avatar={each.avatar.avatar_url}
+                                                 points={each.points} avatar={each.avatar.avatar_url}
                                 />;
                             })}
                         </div>
@@ -83,4 +73,3 @@ export class Team extends React.Component {
         }
     }
 }
-

@@ -29,9 +29,6 @@ router.get('/account/:id', (req, res) => {
     })
 });
 
-// route for new users
-router.post('/parent')
-
 
 router.get('/team/:id', (req, res) => {
     console.log("test");

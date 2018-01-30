@@ -37,5 +37,8 @@ export default {
     createNewUser: function (newParent) {
         console.log("new Parent API Call: " + newParent);
         return axios.post("api/parent", newParent);
+    },
+    loadChildInfo: function () {
+        return axios.post("api/parent/team");
     }
 };
