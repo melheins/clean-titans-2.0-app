@@ -27,3 +27,13 @@ module.exports = function (sequelize, DataTypes) {
     };
     return active_rewards
 };
+
+
+
+let newParent = {
+  first_name: loca
+  last_name,
+  uid
+}
+
+API.createParent(newParent)
