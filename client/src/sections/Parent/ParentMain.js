@@ -28,9 +28,9 @@ export class ParentMain extends React.Component {
                 console.log("load res: " + JSON.stringify(res))
                 if (!res.data) {
                     let newParent = {
-                        first_name: userInfo.data.nickname,
-                        last_name: userInfo.data.nickname,
-                        uid: userInfo.data.id
+                        first_name: userInfo.nickname,
+                        last_name: userInfo.nickname,
+                        uid: userInfo.sub
                     };
                     console.log(newParent);
                     API.createNewUser(newParent)

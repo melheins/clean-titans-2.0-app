@@ -9,8 +9,8 @@ const ACCESS_TOKEN_KEY = 'access_token';
 
 const CLIENT_ID = '3j2OVQKQy5NMMVpj5Kz1KaaOHWTNLqfC';
 const CLIENT_DOMAIN = 'regas.auth0.com';
-//const REDIRECT = "http://localhost:3000/parent";
-const REDIRECT = 'https://clean-titans-2.herokuapp.com/parent';
+const REDIRECT = "http://localhost:3000/parent";
+//const REDIRECT = 'https://clean-titans-2.herokuapp.com/parent';
 const SCOPE = 'openid profile';
 const AUDIENCE = 'https://regas.auth0.com/userinfo';
 
