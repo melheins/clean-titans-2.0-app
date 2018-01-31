@@ -25,8 +25,8 @@ export default class ChildLogin extends React.Component {
 
         if (this.state.children.length > 0) {
             return (
-                <div className="container">
-                    <div className={'row'}>
+                <div className="container" style={{maxWidth: "600px"}}>
+                    <div className={'row'} style={{display: "inline-flex", margin: "0 auto"}}>
                         {this.state.children.map((each, i) => {
                             return <ChildLoginCard key={i} first_name={each.first_name} nickname={each.nickname}
                                                     avatar={each.avatar.avatar_url} id={each.id}
