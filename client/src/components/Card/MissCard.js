@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {Card, CardTitle, CardText} from 'material-ui/Card';
+import './TeamCard.css'
 import API from "../../utils/API";
-
 //import Divider from 'material-ui/Divider';
 //import Subheader from 'material-ui/Subheader';
 //import Avatar from 'material-ui/Avatar';
@@ -41,15 +41,16 @@ class MissCard extends Component {
                 <div className={"col-lg-4 col-md-12 mb-3"}>
                     <div>
                         <Card className={"p-2"}>
-                            <CardTitle style={{padding: "8px"}}
+                            <CardTitle style={{padding: "8px",
+                                                fontFamily: "Avengeance Mightiest"}}
                                        title={this.state.title}/>
-                            <CardText style={{padding: "8px"}}>Description: {this.state.description}</CardText>
-                            <CardText style={{padding: "8px"}}>Points: {this.state.points}</CardText>
+                            <CardText style={{padding: "8px, fontFamily: "Comic Geek""}}>Description: {this.state.description}</CardText>
+                            <CardText style={{padding: "8px, fontFamily: "Comic Geek""}}>Points: {this.state.points}</CardText>
                             <CardText style={{padding: "8px"}}>Status: {this.state.status}</CardText>
 
                             <CardText>
                                 <div>
-                                    <button data-mission-id={this.state.missionId} onClick={this.handleCompleteMission}>
+                                    <button style={{fontFamily: "Avengeance Mightiest"}} data-mission-id={this.state.missionId} onClick={this.handleCompleteMission}>
                                         Complete
                                     </button>
                                 </div>
@@ -64,10 +65,10 @@ class MissCard extends Component {
                 <div className={"col-lg-4 col-md-12 mb-3"}>
                     <div>
                         <Card className={"p-2"}>
-                            <CardTitle style={{padding: "8px"}}
+                            <CardTitle style={{padding: "8px", fontFamily: "Avengeance Mightiest"}}
                                        title={this.state.title}/>
-                            <CardText style={{padding: "8px"}}>Description: {this.state.description}</CardText>
-                            <CardText style={{padding: "8px"}}>Points: {this.state.points}</CardText>
+                            <CardText style={{padding: "8px, fontFamily: "Comic Geek""}}>Description: {this.state.description}</CardText>
+                            <CardText style={{padding: "8px, fontFamily: "Comic Geek""}}>Points: {this.state.points}</CardText>
                             <CardText style={{padding: "8px"}}>Status: {this.state.status}</CardText>
                         </Card>
                     </div>

@@ -32,15 +32,15 @@ class ChildLoginCard extends Component {
 
         return (
 
-            <div className={"col-lg-4 col-md-12 mb-3"} style={{textAlign:'center',marginTop: '200px'}} >
+            <div style={{textAlign:'center',marginTop: '50px'}} >
                 <div>
                     <Card className={"p-2 login-cards"} style={{backgroundColor:'transparent', boxShadow:'none'}}>
                         {console.log(this.props.avatar)}
                         <CardImg  imgSrc={this.props.avatar}/>
-                        <CardTitle style={{padding: "8px"}}
+                        <CardTitle style={{padding: "8px", fontFamily: "Avengeance Mightiest"}}
                                    title={this.state.first_name}/>
                         <CardActions>
-                            <FlatButton style={{backgroundColor:'red',fontWeight:'bold'}} label="Login" href="/child" onClick={this.setChild}/>
+                            <FlatButton style={{backgroundColor:'red',fontWeight:'bold', fontFamily: "Comic Geek"}} label="Login" href="/child" onClick={this.setChild}/>
                         </CardActions>
                     </Card>
                 </div>

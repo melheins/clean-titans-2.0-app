@@ -25,7 +25,7 @@ class Login extends React.Component {
                 </div>
                 <div className={"col-lg-6 col-md-8 col-sm-10"}>
                     <h1>Welcome Heroes!</h1>
-                    <FlatButton backgroundColor="red" style={{textAlign:'center',height:'100%',padding: '15px',backgroundColor:'red',fontWeight:'bold'}} onClick={this.sign_user}>Click to Sign In!</FlatButton>
+                    <FlatButton backgroundColor="red" style={{textAlign:'center',height:'100%',padding: '15px',backgroundColor:'red',fontWeight:'bold', fontFamily: "Comic Geek"}} onClick={this.sign_user}>Click to Sign In!</FlatButton>
                 </div>
             </div>
         );
