@@ -30,21 +30,13 @@ body {
     background-attachment: fixed;
 }
 
-div,
-.row {
-    position: relative;
-    left: auto;
-    right: auto;
-}
+/*.row {*/
+    /*position: relative;*/
+    /*left: auto;*/
+    /*right: auto;*/
+/*}*/
 
 h1 {
     font-family: "Avengeance Mightiest Avenger", Helvetica, Arial, sans-serif;
 }
 
-.loginBtn {
-    font-family: "Comic Geek", Helvetica, Arial, sans-serif;
-}
-
-.welcome {
-
-}
