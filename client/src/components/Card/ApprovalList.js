@@ -10,10 +10,33 @@ import {darkBlack, black, white} from 'material-ui/styles/colors';
 import {ListItem} from 'material-ui/List';
 import CheckIcon from 'react-material-icons/icons/action/check-circle';
 import CancelIcon from 'react-material-icons/icons/navigation/cancel';
-import {Link} from 'react-router-dom';
+//import {Link} from 'react-router-dom';
 import API from "../../utils/API";
+import IconButton from 'material-ui/IconButton';
+
 
 import "./List.css";
+
+const styles = {
+    mediumIcon: {
+        width: 48,
+        height: 48,
+    },
+    largeIcon: {
+        width: 60,
+        height: 60,
+    },
+    medium: {
+        width: 96,
+        height: 96,
+        padding: 24,
+    },
+    large: {
+        width: 120,
+        height: 120,
+        padding: 30,
+    },
+};
 
 class ParentList extends Component {
     constructor(props) {
@@ -29,14 +52,15 @@ class ParentList extends Component {
             description: props.description,
             child: props.name,
             id: props.id,
-            type: props.type
+            type: props.type,
+            status: props.status
         };
     }
 
     handleApproveMission = event => {
         event.preventDefault();
         const cid = localStorage.getItem('childId');
-        API.updateChildMissionStatus(this.state.missionId, 'A', cid, this.state.points)
+        API.approveDenyMission(this.state.missionId, 'A', cid, this.state.points)
             .then(res =>
                 this.setState({status: 'C'})
             )
@@ -46,7 +70,7 @@ class ParentList extends Component {
     handleDenyMission = event => {
         event.preventDefault();
         const cid = localStorage.getItem('childId');
-        API.updateChildMissionStatus(this.state.missionId, 'I', cid, this.state.points)
+        API.approveDenyMission(this.state.missionId, 'I', cid, this.state.points)
             .then(res =>
                 this.setState({status: 'C'})
             )
@@ -66,24 +90,29 @@ class ParentList extends Component {
                     marginBottom: '5px'
                 }}
                 rightIconButton={
-                    <div style={{color: black, fontWeight: 'bold', top: '30px'}}>
+                    <div style={{color: black, fontWeight: 'bold'}}>
                         <span style={{fontSize: '20px', paddingRight: '10px'}}>{this.state.points}pts</span>
-                        <span style={{height: '48px', width: '48px', paddingRight: '10px'}}>
-                            <Link data-mission-id={this.state.id} onClick={this.handleApproveMission}>
-                                <CheckIcon/>
-                            </Link>
+                        <span style={{paddingRight: '10px'}}>
+                            <IconButton data-mission-id={this.state.id} onClick={this.handleApproveMission} iconStyle={styles.mediumIcon}
+                                        style={styles.medium}>
+                                <CheckIcon />
+                            </IconButton>
                         </span>
                         <span style={{fontSize: '30px', paddingRight: '10px'}}>
-                            <Link data-mission-id={this.state.id} onClick={this.handleDenyMission}>
-                                <CancelIcon/>
-                            </Link>
+                            <IconButton data-mission-id={this.state.id} onClick={this.handleDenyMission}  iconStyle={styles.mediumIcon}
+                                        style={styles.medium}>
+                                <CancelIcon />
+                            </IconButton>
                         </span>
                     </div>}
                 primaryText={<span style={{fontWeight: 'bold', fontSize: '18px'}}>{this.state.child}</span>}
                 secondaryText={
                     <p>
                         <span style={{color: darkBlack}}>{this.state.title}</span>
+                        <span style={{color: darkBlack}}>{this.state.status}</span>
+
                     </p>
+
                 } secondaryTextLines={2}
 
             />
