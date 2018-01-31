@@ -54,6 +54,7 @@ export class Approvals extends React.Component {
                                                   points={each.parent_mission.mission_point_value}
                                                   description={each.parent_mission.mission_description}
                                                   name={each.child.first_name}
+                                                  cid={each.child.id}
                                                   id={each.id}
                                                   type="M"
                                                   status={each.mission_status}
@@ -70,6 +71,7 @@ export class Approvals extends React.Component {
                                                   points={each.parent_reward.reward_points_required}
                                                   description={each.parent_reward.reward_description}
                                                   name={each.child.first_name}
+                                                  cid={each.child.id}
                                                   id={each.id}
                                                   type="R"
                                                   status={each.reward_status}

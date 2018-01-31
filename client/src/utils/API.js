@@ -31,7 +31,13 @@ export default {
         return axios.get("/api/parent/rewards/" + id);
     },
     approveDenyMission: function (id, status, childId, points) {
-        return axios.put("/api/parent/missions/approvedeny/" + id, {newStatus: status, cid: childId, addPoints: points})
+        console.log('Mission Update P2 - API.js');
+        console.log('id: '+id+' newStatus: ' + status + ' cid: ' + childId + ' addPoints:  ' + points);
+        return axios.put("/api/parent/missions/approvedeny/" + id, {
+            newStatus: status,
+            cid: childId,
+            addPoints: points
+        });
     },
     approveReward: function (id, data) {
         return axios.put("/api/parent/rewards/approve/" + id, {newStatus: data})
