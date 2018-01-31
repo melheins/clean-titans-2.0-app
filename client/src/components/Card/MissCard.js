@@ -34,16 +34,22 @@ class MissCard extends Component {
                 <div className={"col-lg-4 col-md-12 mb-3"}>
                     <div>
                         <Card className={"p-2"}>
-                            <CardTitle style={{padding: "8px",
-                                                fontFamily: "Avengeance Mightiest"}}
+                            <CardTitle style={{padding: "8px", fontFamily: "Avengeance Mightiest"}}
                                        title={this.state.title}/>
-                            <CardText style={{padding: "8px, fontFamily: "Comic Geek""}}>Description: {this.state.description}</CardText>
-                            <CardText style={{padding: "8px, fontFamily: "Comic Geek""}}>Points: {this.state.points}</CardText>
+                            <CardText style={{
+                                padding: "8px",
+                                fontFamily: "Comic Geek"
+                            }}>Description: {this.state.description}</CardText>
+                            <CardText style={{
+                                padding: "8px",
+                                fontFamily: "Comic Geek"
+                            }}>Points: {this.state.points}</CardText>
                             <CardText style={{padding: "8px"}}>Status: {this.state.status}</CardText>
 
                             <CardText>
                                 <div>
-                                    <button style={{fontFamily: "Avengeance Mightiest"}} data-mission-id={this.state.missionId} onClick={this.handleCompleteMission}>
+                                    <button style={{fontFamily: "Avengeance Mightiest"}}
+                                            data-mission-id={this.state.missionId} onClick={this.handleCompleteMission}>
                                         Complete
                                     </button>
                                 </div>
@@ -60,8 +66,12 @@ class MissCard extends Component {
                         <Card className={"p-2"}>
                             <CardTitle style={{padding: "8px", fontFamily: "Avengeance Mightiest"}}
                                        title={this.state.title}/>
-                            <CardText style={{padding: "8px, fontFamily: "Comic Geek""}}>Description: {this.state.description}</CardText>
-                            <CardText style={{padding: "8px, fontFamily: "Comic Geek""}}>Points: {this.state.points}</CardText>
+                            <CardText style={{
+                                padding: "8px", fontFamily: "Comic Geek"
+                            }}>Description: {this.state.description}</CardText>
+                            <CardText style={{
+                                padding: "8px", fontFamily: "Comic Geek"
+                            }}>Points: {this.state.points}</CardText>
                             <CardText style={{padding: "8px"}}>Status: {this.state.status}</CardText>
                         </Card>
                     </div>
