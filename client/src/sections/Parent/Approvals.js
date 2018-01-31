@@ -52,6 +52,7 @@ export class Approvals extends React.Component {
                                 return (
                                     <ApprovalList key={m} title={each.parent_mission.mission_title} points={each.parent_mission.mission_point_value}
                                                 description={each.parent_mission.mission_description} name={each.child.first_name}
+                                                  id={each.id} type="M"
                                     />
                                 );
                             })}</List>
@@ -63,6 +64,7 @@ export class Approvals extends React.Component {
                                 return (
                                     <ApprovalList key={r} title={each.parent_reward.reward_name} points={each.parent_reward.reward_points_required}
                                                 description={each.parent_reward.reward_description} name={each.child.first_name}
+                                                  id={each.id} type="R"
                                     />
                                 );
                             })}</List>

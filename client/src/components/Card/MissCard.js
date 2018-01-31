@@ -2,13 +2,8 @@ import React, {Component} from "react";
 import {Card, CardTitle, CardText} from 'material-ui/Card';
 import './TeamCard.css'
 import API from "../../utils/API";
-//import Divider from 'material-ui/Divider';
-//import Subheader from 'material-ui/Subheader';
-//import Avatar from 'material-ui/Avatar';
-
 
 class MissCard extends Component {
-
 
     constructor(props) {
         super();
@@ -31,11 +26,9 @@ class MissCard extends Component {
                 this.setState({status: 'C'})
             )
             .catch(err => console.log(err));
-
     };
 
     render() {
-
         if (this.state.status === 'I') {
             return (
                 <div className={"col-lg-4 col-md-12 mb-3"}>

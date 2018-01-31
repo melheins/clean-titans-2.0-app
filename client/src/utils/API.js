@@ -30,9 +30,11 @@ export default {
     loadRewardSec: function (id) {
         return axios.get("/api/parent/rewards/" + id);
     },
-    // Loads child login page
-    loadChildLogin: function (id) {
-        return axios.get("/api/childlogin/" + id);
+    approveDenyMission: function (id, status, childId, points) {
+        return axios.put("/api/parent/missions/approvedeny/" + id, {newStatus: status, cid: childId, addPoints: points})
+    },
+    approveReward: function (id, data) {
+        return axios.put("/api/parent/rewards/approve/" + id, {newStatus: data})
     },
 
 
@@ -51,9 +53,15 @@ export default {
     },
     updateChildMissionStatus: function (id, data) {
         console.log(data);
-        return axios.put("/api/child/missions/updatestatus/" +id, {newStatus: data})
+        return axios.put("/api/child/missions/updatestatus/" + id, {newStatus: data})
     },
-    purchaseChildReward: function (id, data) {
-        return axios.put("/api/child/rewards/purchase/" +id, data)
-    }
+    purchaseChildReward: function (id) {
+        return axios.post("/api/child/rewards/purchase/" + id)
+    },
+
+    //<--CHILD Login-->
+    // Loads child login page
+    loadChildLogin: function (id) {
+        return axios.get("/api/childlogin/" + id);
+    },
 };

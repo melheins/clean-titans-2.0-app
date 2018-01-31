@@ -98,4 +98,58 @@ router.get('/rewards/:id', (req, res) => {
 });
 
 
+router.put('/parent/missions/approvedeny/:id', (req, res) => {
+    const mid = req.params.id;
+    console.log('Mission Updating.....');
+    console.log('New Status: ' + req.body.newStatus);
+    console.log('Child: ' + req.body.cid);
+    console.log('Add Points: ' + req.body.addPoints);
+    let currentPoints = 0;
+    let newPoints = 0;
+
+    db.active_missions.update(
+        {mission_status: req.body.newStatus},
+        {where: {id: mid}}
+    ).then(function (rowsUpdated) {
+        // console.log(childData);
+        res.json(rowsUpdated);
+    });
+    if (req.body.newStatus === 'A') {
+        db.children.findOne({
+            where: {id: req.body.cid}
+        }).then(function (child) {
+            console.log(child);
+            currentPoints = child.points;
+        }).then(function () {
+                newPoints = currentPoints + req.body.addPoints;
+                console.log("New Points: " + newPoints);
+            }
+        ).then(function () {
+                db.children.update(
+                    {points: req.body.newStatus},
+                    {where: {id: cid}}
+                ).then(function (rowsUpdated) {
+                    // console.log(childData);
+                    //res.json(rowsUpdated);
+                })
+            }
+        )
+    }
+});
+
+
+router.put('/parent/rewards/approve/:id', (req, res) => {
+    const rid = req.params.id;
+    console.log('Reward Updating.....');
+    console.log(req.body.newStatus);
+
+    db.active_rewards.update(
+        {reward_status: req.body.newStatus},
+        {where: {id: rid}}
+    ).then(function (rowsUpdated) {
+        // console.log(childData);
+        res.json(rowsUpdated);
+    })
+});
+
 module.exports = router;

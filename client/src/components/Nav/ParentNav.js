@@ -6,11 +6,7 @@ import apprImg from '../../assets/icons/A.png'
 import rewardsImg from '../../assets/icons/R.png'
 import missionsImg from '../../assets/icons/M.png'
 import heroesImg from '../../assets/icons/H.png'
-
-
 import "./Nav.css";
-
-
 
 export class ParentNav extends React.Component {
 
