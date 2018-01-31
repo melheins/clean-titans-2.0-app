@@ -49,8 +49,9 @@ export default {
     loadChildRewardSec: function (id) {
         return axios.get("/api/child/rewards/" + id);
     },
-    updateChildMission: function (id, data) {
-        return axios.put("/api/child/missions/updatestatus/" +id, data)
+    updateChildMissionStatus: function (id, data) {
+        console.log(data);
+        return axios.put("/api/child/missions/updatestatus/" +id, {newStatus: data})
     },
     purchaseChildReward: function (id, data) {
         return axios.put("/api/child/rewards/purchase/" +id, data)

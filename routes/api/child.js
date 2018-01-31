@@ -46,16 +46,17 @@ router.get('/rewards/:id', (req, res) => {
     })
 });
 
-router.post('/missions/updatestatus/:id', (req, res, data) => {
-    const childId = req.params.id;
-    console.log(data);
-    db.active_missions.findOne({
-        where: {
-            childId
-        }
-    }).then(function (childData) {
+router.put('/missions/updatestatus/:id', (req, res) => {
+    const mid = req.params.id;
+    console.log('Mission Updating.....');
+    console.log(req.body.newStatus);
+
+    db.active_missions.update(
+        {mission_status: req.body.newStatus},
+        {where: {id: mid}}
+    ).then(function (rowsUpdated) {
         // console.log(childData);
-        res.json(childData);
+        res.json(rowsUpdated);
     })
 });
 
