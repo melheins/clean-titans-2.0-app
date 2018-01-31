@@ -60,4 +60,18 @@ router.put('/missions/updatestatus/:id', (req, res) => {
     })
 });
 
+router.post('/rewards/purchase/:id', (req, res) => {
+    const rid = req.params.id;
+    console.log('Reward Purchasing.....');
+    console.log(req.body.newStatus);
+
+    db.active_rewards.update(
+        {mission_status: req.body.newStatus},
+        {where: {id: rid}}
+    ).then(function (rowsUpdated) {
+        // console.log(childData);
+        res.json(rowsUpdated);
+    })
+});
+
 module.exports = router;
