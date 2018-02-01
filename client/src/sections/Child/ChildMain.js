@@ -1,59 +1,29 @@
-import React, {Component} from "react";
+import React from "react";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import {CMissions} from "./CMissions";
 import {CRewards} from "./CRewards";
-import {ChildNav} from "../../components/Nav";
-import API from "../../utils/API";
+import ChildNav from "../../components/Nav/ChildNav";
+//import API from "../../utils/API";
 
 
 export class ChildMain extends React.Component {
     state = {
-        children: [],
+        //children: [],
         sampleChildren: [],
     };
 
     componentDidMount() {
-        console.log('Mission - Child Id: ' + localStorage.getItem('childId'));
-        const cid = localStorage.getItem('childId');
-        this.loadChildNavBar(cid);
+        console.log('Child Main - Child Id: ' + localStorage.getItem('childId'));
+        //const cid = localStorage.getItem('childId');
     }
 
-    loadChildNavBar(cid) {
-        API.loadChildNav(cid)
-            .then(res =>
-                    // console.log(res.data)
-                    this.setState({children: res.data})
-                //this.setState({children: JSON.stringify(res.data)})
-            )
-            .catch(err => console.log(err));
-    };
-
-    /** constructor() {
-        super();
-        this.sampleChildren = [
-            {
-                first_name: "Maya",
-                nickname: "Supergirlie",
-                points: "5",
-                avatar: "1"
-            },
-            {
-                first_name: "Tim",
-                nickname: "Tiny",
-                points: "15",
-                avatar: "1"
-            },
-        ]
-    } **/
 
 
     render() {
         return (
             <Router>
                 <div>
-                    <ChildNav first_name={this.state.first_name} nickname={this.state.nickname}
-                              points={this.state.points} //avatar={this.state.avatar.avatar_url}
-                    />
+                    <ChildNav/>
                     <div>
                         <Switch>
                             <Route exact path="/child" component={CMissions}/>

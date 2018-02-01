@@ -20,7 +20,7 @@ class RewCard extends Component {
     handlePurchaseReward = event => {
         event.preventDefault();
         const cid = localStorage.getItem('childId');
-        API.purchaseChildReward(this.state.rewardId,'R',cid,this.state.points)
+        API.purchaseChildReward(this.state.rewardId, 'R', cid, this.state.points)
             .then(res =>
                 this.props.handler
             )
@@ -28,20 +28,6 @@ class RewCard extends Component {
     };
 
     render() {
-<<<<<<< HEAD
-        return (
-            <div className={"col-lg-4 col-md-12 mb-3"}>
-                <div>
-                    <Card className={"p-2"}>
-                        <CardTitle style={{padding: "8px",
-                                           fontFamily: "Avengeance Mightiest"}}
-                                   title={this.state.title}/>
-                        <CardText style={{padding: "8px", fontFamily: "Comic Geek"}}>Description: {this.state.description}</CardText>
-                        <CardText style={{padding: "8px", fontFamily: "Comic Geek"}}>Points: {this.state.points}</CardText>
-                        <CardText><div><button style={{fontFamily: "Avengeance Mightiest"}} data-mission-id={this.state.rewardId}>Purchase</button></div></CardText>
-
-                    </Card>
-=======
         if (this.state.status === 'I') {
             return (
                 <div className={"col-lg-4 col-md-12 mb-3"}>
@@ -53,7 +39,11 @@ class RewCard extends Component {
                             <CardText style={{padding: "8px"}}>Points: {this.state.points}</CardText>
                             <CardText>
                                 <div>
-                                    <FlatButton style={{backgroundColor:'red',fontWeight:'bold', fontFamily: "Avengeance Mightiest"}} data-mission-id={this.state.rewardId} onClick={this.handlePurchaseReward}>
+                                    <FlatButton style={{
+                                        backgroundColor: 'red',
+                                        fontWeight: 'bold',
+                                        fontFamily: "Avengeance Mightiest"
+                                    }} data-mission-id={this.state.rewardId} onClick={this.handlePurchaseReward}>
                                         Purchase
                                     </FlatButton>
                                 </div>
@@ -75,7 +65,6 @@ class RewCard extends Component {
                             <CardText style={{padding: "8px"}}>Awaiting Command Approval</CardText>
                         </Card>
                     </div>
->>>>>>> ac44276ccad01508c5581f98507ddce6a1242da7
                 </div>
             );
         }
