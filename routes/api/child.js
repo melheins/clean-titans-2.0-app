@@ -65,15 +65,48 @@ router.put('/missions/updatestatus/:id', (req, res) => {
 router.post('/rewards/purchase/:id', (req, res) => {
     const rid = req.params.id;
     console.log('Reward Purchasing.....');
-    console.log(req.body.newStatus);
+    console.log('New Status: ' + req.body.newStatus);
+    console.log('Child: ' + req.body.cid);
+    console.log('Add Points: ' + req.body.addPoints);
+    let currentPoints = 0;
+    let newPoints = 0;
 
-    db.active_rewards.update(
-        {mission_status: req.body.newStatus},
-        {where: {id: rid}}
-    ).then(function (rowsUpdated) {
-        // console.log(childData);
-        res.json(rowsUpdated);
-    })
+    db.active_rewards.findOne({
+        where: {id: rid}
+    }).then(function (rewardData) {
+        console.log(rewardData);
+        console.log(req.body.newStatus);
+        console.log(rewardData.childId);
+        db.active_rewards.create({
+            reward_status: req.body.newStatus,
+            parentRewardId: rewardData.parentRewardId,
+            parentId: rewardData.parentId,
+            childId: rewardData.childId,
+        }).then(function (rewardData) {
+            console.log('Reward Created');
+            res.json(rewardData);
+        }).then(function () {
+            db.children.findOne({
+                where: {id: req.body.cid}
+            }).then(function (child) {
+                //console.log(child);
+                currentPoints = child.points;
+            }).then(function () {
+                    newPoints = currentPoints - req.body.addPoints;
+                    console.log("New Points: " + newPoints);
+                }
+            ).then(function () {
+                    db.children.update(
+                        {points: newPoints},
+                        {where: {id: req.body.cid}}
+                    ).then(function (rowsUpdated) {
+                        console.log('child updated');
+                        //res.json(rowsUpdated);
+                    })
+                }
+            )
+        });
+    });
 });
 
 module.exports = router;

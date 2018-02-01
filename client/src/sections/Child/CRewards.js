@@ -40,6 +40,7 @@ export class CRewards extends React.Component {
                                                 description={each.parent_reward.reward_description}
                                                 status={each.reward_status}
                                                 rid={each.id}
+                                                handler = {this.loadRewardSection}
                                 />;
                             })}
                         </div>

@@ -31,7 +31,7 @@ export default {
         return axios.get("/api/parent/rewards/" + id);
     },
     approveDenyMission: function (id, status, childId, points) {
-        console.log('id: '+id+' newStatus: ' + status + ' cid: ' + childId + ' addPoints:  ' + points);
+        console.log('id: ' + id + ' newStatus: ' + status + ' cid: ' + childId + ' addPoints:  ' + points);
         return axios.put("/api/parent/missions/approvedeny/" + id, {
             newStatus: status,
             cid: childId,
@@ -60,8 +60,12 @@ export default {
         console.log(data);
         return axios.put("/api/child/missions/updatestatus/" + id, {newStatus: data})
     },
-    purchaseChildReward: function (id) {
-        return axios.post("/api/child/rewards/purchase/" + id)
+    purchaseChildReward: function (id, status, childId, points) {
+        return axios.post("/api/child/rewards/purchase/" + id, {
+            newStatus: status,
+            cid: childId,
+            addPoints: points
+        })
     },
 
     //<--CHILD Login-->
