@@ -26,7 +26,8 @@ router.get('/missions/:id', (req, res) => {
             childId,
             mission_status: {$ne: 'A'}
         },
-        include: [db.parent_missions]
+        include: [db.parent_missions],
+        order: ['mission_status']
     }).then(function (childData) {
         //console.log(childData);
         res.json(childData);
@@ -41,7 +42,8 @@ router.get('/rewards/:id', (req, res) => {
             childId,
             reward_status: {$ne: 'A'}
         },
-        include: [db.parent_rewards]
+        include: [db.parent_rewards],
+        order: [['reward_status', 'DESC']]
     }).then(function (childData) {
         // console.log(childData);
         res.json(childData);

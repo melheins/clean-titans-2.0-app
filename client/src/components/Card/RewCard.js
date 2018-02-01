@@ -22,8 +22,6 @@ class RewCard extends Component {
         const cid = localStorage.getItem('childId');
         API.purchaseChildReward(this.state.rewardId,'R',cid,this.state.points)
             .then(res =>
-                //this.setState({status: 'C'})
-                //console.log('purchased?')
                 this.props.handler
             )
             .catch(err => console.log(err));
