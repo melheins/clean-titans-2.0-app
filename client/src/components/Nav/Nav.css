@@ -1,3 +1,18 @@
+@font-face {
+    font-family: Badaboom;
+    src: url(../../assets/fonts/badaboom_bb/BADABB.TTF);
+}
+
+@font-face {
+    font-family: Avengeance Mightiest;
+    src: url(../../assets/fonts/avengeance_mightiest_avenger/AVENGEANCE_MIGHTIEST_AVENGER.otf);
+}
+
+@font-face {
+    font-family: Comic Geek;
+    src: url(../../assets/fonts/comic_geek_regular/Comic_Geek_Regular.ttf);
+}
+
 .header-logo {
     width: 150px;
 }
