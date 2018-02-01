@@ -57,7 +57,7 @@ router.get('/rewappr/:id', (req, res) => {
 });
 
 router.get('/team/:id', (req, res) => {
-    console.log("test");
+    console.log("load team");
     console.log(req.params.id);
     const parentId = req.params.id;
 
@@ -69,6 +69,27 @@ router.get('/team/:id', (req, res) => {
     }).then(function (parentData) {
         // console.log(parentData);
         res.json(parentData);
+    })
+});
+
+router.get('/team/addchild/avatars', (req, res) => {
+    console.log("load avatars");
+    db.avatars.findAll({}).then(function (avatarData) {
+        //console.log(avatarData);
+        res.json(avatarData);
+    })
+});
+
+router.post('/team/addchild/save/:id', (req, res) => {
+    console.log("create child");
+    db.children.create({
+        first_name: req.body.name,
+        nickname: req.body.nick,
+        avatarId: req.body.avatar,
+        parentId: req.params.id,
+    }).then(function (childData) {
+        //console.log(avatarData);
+        res.json(childData);
     })
 });
 
@@ -137,7 +158,6 @@ router.put('/missions/approvedeny/:id', (req, res) => {
         }
     });
 });
-
 
 
 router.put('/rewards/approve/:id', (req, res) => {
