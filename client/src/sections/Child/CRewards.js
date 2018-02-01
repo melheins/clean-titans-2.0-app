@@ -38,7 +38,9 @@ export class CRewards extends React.Component {
                                 return <RewCard key={i} title={each.parent_reward.reward_name}
                                                 points={each.parent_reward.reward_points_required}
                                                 description={each.parent_reward.reward_description}
+                                                status={each.reward_status}
                                                 rid={each.id}
+                                                handler = {this.loadRewardSection}
                                 />;
                             })}
                         </div>

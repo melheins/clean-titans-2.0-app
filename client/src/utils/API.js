@@ -22,6 +22,16 @@ export default {
     loadTeamSec: function (id) {
         return axios.get("/api/parent/team/" + id);
     },
+    loadAvatars: function () {
+        return axios.get("/api/parent/team/addchild/avatars");
+    },
+    teamAddChild: function (id, name,nick,avatar) {
+        return axios.post("/api/parent/team/addchild/save/" + id, {
+            name: name,
+            nick: nick,
+            avatar: avatar
+        });
+    },
     // Loads parent missions page
     loadMissionSec: function (id) {
         return axios.get("/api/parent/missions/" + id);
@@ -30,9 +40,16 @@ export default {
     loadRewardSec: function (id) {
         return axios.get("/api/parent/rewards/" + id);
     },
-    // Loads child login page
-    loadChildLogin: function (id) {
-        return axios.get("/api/childlogin/" + id);
+    approveDenyMission: function (id, status, childId, points) {
+        console.log('id: ' + id + ' newStatus: ' + status + ' cid: ' + childId + ' addPoints:  ' + points);
+        return axios.put("/api/parent/missions/approvedeny/" + id, {
+            newStatus: status,
+            cid: childId,
+            addPoints: points
+        });
+    },
+    approveReward: function (id, data) {
+        return axios.put("/api/parent/rewards/approve/" + id, {newStatus: data})
     },
 
 
@@ -49,10 +66,21 @@ export default {
     loadChildRewardSec: function (id) {
         return axios.get("/api/child/rewards/" + id);
     },
-    updateChildMission: function (id, data) {
-        return axios.put("/api/child/missions/updatestatus/" +id, data)
+    updateChildMissionStatus: function (id, data) {
+        console.log(data);
+        return axios.put("/api/child/missions/updatestatus/" + id, {newStatus: data})
     },
-    purchaseChildReward: function (id, data) {
-        return axios.put("/api/child/rewards/purchase/" +id, data)
-    }
+    purchaseChildReward: function (id, status, childId, points) {
+        return axios.post("/api/child/rewards/purchase/" + id, {
+            newStatus: status,
+            cid: childId,
+            addPoints: points
+        })
+    },
+
+    //<--CHILD Login-->
+    // Loads child login page
+    loadChildLogin: function (id) {
+        return axios.get("/api/childlogin/" + id);
+    },
 };

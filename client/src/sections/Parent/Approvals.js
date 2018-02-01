@@ -21,7 +21,7 @@ export class Approvals extends React.Component {
     loadMissionSection(pid) {
         API.loadMisApprovalsSec(pid)
             .then(res =>
-                    // console.log(res.data)
+                    //console.log(res.data)
                     this.setState({missionsAppr: res.data})
                 //this.setState({children: JSON.stringify(res.data)})
             )
@@ -31,7 +31,7 @@ export class Approvals extends React.Component {
     loadRewardSection(pid) {
         API.loadRewApprovalsSec(pid)
             .then(res =>
-                    // console.log(res.data)
+                    //console.log(res.data)
                     this.setState({rewardsAppr: res.data})
                 //this.setState({children: JSON.stringify(res.data)})
             )
@@ -50,8 +50,14 @@ export class Approvals extends React.Component {
                             <h2>Missions</h2>
                             <List>{this.state.missionsAppr.map((each, m) => {
                                 return (
-                                    <ApprovalList key={m} title={each.parent_mission.mission_title} points={each.parent_mission.mission_point_value}
-                                                description={each.parent_mission.mission_description} name={each.child.first_name}
+                                    <ApprovalList key={m} title={each.parent_mission.mission_title}
+                                                  points={each.parent_mission.mission_point_value}
+                                                  description={each.parent_mission.mission_description}
+                                                  name={each.child.first_name}
+                                                  cid={each.child.id}
+                                                  id={each.id}
+                                                  type="M"
+                                                  status={each.mission_status}
                                     />
                                 );
                             })}</List>
@@ -61,8 +67,14 @@ export class Approvals extends React.Component {
                             <h2>Rewards</h2>
                             <List>{this.state.rewardsAppr.map((each, r) => {
                                 return (
-                                    <ApprovalList key={r} title={each.parent_reward.reward_name} points={each.parent_reward.reward_points_required}
-                                                description={each.parent_reward.reward_description} name={each.child.first_name}
+                                    <ApprovalList key={r} title={each.parent_reward.reward_name}
+                                                  points={each.parent_reward.reward_points_required}
+                                                  description={each.parent_reward.reward_description}
+                                                  name={each.child.first_name}
+                                                  cid={each.child.id}
+                                                  id={each.id}
+                                                  type="R"
+                                                  status={each.reward_status}
                                     />
                                 );
                             })}</List>

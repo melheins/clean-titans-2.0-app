@@ -1,8 +1,9 @@
 import React from "react";
 import API from "../../utils/API";
 import TeamCard from '../../components/Card/TeamCard';
-import FloatingActionButton from 'material-ui/FloatingActionButton';
-import ContentAdd from 'material-ui/svg-icons/content/add';
+import FlatButton from 'material-ui/FlatButton';
+import {Link} from 'react-router-dom';
+
 
 export class Team extends React.Component {
 
@@ -53,9 +54,10 @@ export class Team extends React.Component {
             return (
                 <div className="container">
                     <h1>Team</h1>
-                    <FloatingActionButton backgroundColor="red" onClick={this.newChild}>
-                        <ContentAdd />
-                    </FloatingActionButton>
+                    <Link to='/parent/team/addchild'>
+                    <FlatButton style={{backgroundColor:'red',fontWeight:'bold', fontFamily: "Avengeance Mightiest", marginBottom:'15px'}} >
+                        Add Child
+                    </FlatButton></Link>
                     <div>
                         <div className={'row'}>
                             {console.log(this.state.children)}
