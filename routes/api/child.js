@@ -5,7 +5,7 @@ const db = require("../../models");
 
 router.get('/:id', (req, res) => {
     const id = req.params.id;
-    db.children.findOne({
+    db.children.findAll({
         where: {
             id
         },

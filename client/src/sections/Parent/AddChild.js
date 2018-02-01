@@ -70,7 +70,6 @@ export class AddChild extends React.Component {
                         <div>
                             <h3>Select an Avatar:</h3>
                             <SelectField value={this.state.newChildAvatar} onChange={this.handleAvatarChange}>
-                                {console.log(this.state.avatars)}
                                 {this.state.avatars.map((each, a) => {
                                     // console.log(each);
                                     // console.log(i);
