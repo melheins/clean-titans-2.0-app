@@ -23,7 +23,8 @@ router.get('/missions/:id', (req, res) => {
     //console.log("c mission, id=" + childId);
     db.active_missions.findAll({
         where: {
-            childId
+            childId,
+            mission_status: {$ne: 'A'}
         },
         include: [db.parent_missions]
     }).then(function (childData) {
@@ -37,7 +38,8 @@ router.get('/rewards/:id', (req, res) => {
     //console.log("c mission, id=" + childId);
     db.active_rewards.findAll({
         where: {
-            childId
+            childId,
+            reward_status: {$ne: 'A'}
         },
         include: [db.parent_rewards]
     }).then(function (childData) {

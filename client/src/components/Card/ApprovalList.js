@@ -1,16 +1,8 @@
 import React, {Component} from "react";
-//import {Card, CardActions, CardTitle, CardText} from 'material-ui/Card';
-//import Divider from 'material-ui/Divider';
-//import Avatar from 'material-ui/Avatar';
-//import IconButton from 'material-ui/IconButton';
-//import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-//import IconMenu from 'material-ui/IconMenu';
-//import MenuItem from 'material-ui/MenuItem';
 import {darkBlack, black, white} from 'material-ui/styles/colors';
 import {ListItem} from 'material-ui/List';
 import CheckIcon from 'react-material-icons/icons/action/check-circle';
 import CancelIcon from 'react-material-icons/icons/navigation/cancel';
-//import {Link} from 'react-router-dom';
 import API from "../../utils/API";
 import IconButton from 'material-ui/IconButton';
 
@@ -22,19 +14,10 @@ const styles = {
         width: 48,
         height: 48,
     },
-    largeIcon: {
-        width: 60,
-        height: 60,
-    },
     medium: {
-        width: 96,
+        // width: 96,
         height: 96,
-        padding: 24,
-    },
-    large: {
-        width: 120,
-        height: 120,
-        padding: 30,
+        // padding: 24,
     },
 };
 
@@ -60,7 +43,7 @@ class ParentList extends Component {
 
     handleApproveMission = event => {
         event.preventDefault();
-        console.log('Mission Update P1 - ApprovalList.js');
+        //console.log('Mission Update P1 - ApprovalList.js');
         API.approveDenyMission(this.state.id, 'A', this.state.cid, this.state.points)
             .then(res =>
                 //console.log('Mission Update P4 - Res Complete')
@@ -105,30 +88,26 @@ class ParentList extends Component {
                         <div style={{color: black, fontWeight: 'bold'}}>
                             <span style={{fontSize: '20px', paddingRight: '10px'}}>{this.state.points}pts</span>
                             <span style={{paddingRight: '10px'}}>
-                            <IconButton data-mission-id={this.state.id} onClick={this.handleApproveMission}
+                                <IconButton data-mission-id={this.state.id} onClick={this.handleApproveMission}
                                         iconStyle={styles.mediumIcon}
                                         style={styles.medium}>
-                                <CheckIcon/>
-                            </IconButton>
-                        </span>
+                                    <CheckIcon/>
+                                </IconButton>
+                            </span>
                             <span style={{fontSize: '30px', paddingRight: '10px'}}>
-                            <IconButton data-mission-id={this.state.id} onClick={this.handleDenyMission}
+                                <IconButton data-mission-id={this.state.id} onClick={this.handleDenyMission}
                                         iconStyle={styles.mediumIcon}
                                         style={styles.medium}>
-                                <CancelIcon/>
-                            </IconButton>
-                        </span>
+                                    <CancelIcon/>
+                                </IconButton>
+                            </span>
                         </div>}
                     primaryText={<span style={{fontWeight: 'bold', fontSize: '18px'}}>{this.state.child}</span>}
                     secondaryText={
                         <p>
                             <span style={{color: darkBlack}}>{this.state.title}</span>
-                            <span style={{color: darkBlack}}>{this.state.status}</span>
-
                         </p>
-
                     } secondaryTextLines={2}
-
                 />
             );
         }
@@ -159,16 +138,11 @@ class ParentList extends Component {
                     secondaryText={
                         <p>
                             <span style={{color: darkBlack}}>{this.state.title}</span>
-                            <span style={{color: darkBlack}}>{this.state.status}</span>
-
                         </p>
-
                     } secondaryTextLines={2}
-
                 />
             );
         }
-
         else {
             return (null);
         }

@@ -114,7 +114,6 @@ router.put('/missions/approvedeny/:id', (req, res) => {
         console.log('Miss updated');
         res.json(rowsUpdated);
 
-
         if (req.body.newStatus === 'A') {
             db.children.findOne({
                 where: {id: req.body.cid}

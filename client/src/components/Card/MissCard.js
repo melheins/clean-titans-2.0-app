@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {Card, CardTitle, CardText} from 'material-ui/Card';
 import './TeamCard.css'
+import FlatButton from 'material-ui/FlatButton';
 import API from "../../utils/API";
 
 class MissCard extends Component {
@@ -44,14 +45,12 @@ class MissCard extends Component {
                                 padding: "8px",
                                 fontFamily: "Comic Geek"
                             }}>Points: {this.state.points}</CardText>
-                            <CardText style={{padding: "8px"}}>Status: {this.state.status}</CardText>
-
                             <CardText>
                                 <div>
-                                    <button style={{fontFamily: "Avengeance Mightiest"}}
+                                    <FlatButton style={{backgroundColor:'red',fontWeight:'bold', fontFamily: "Avengeance Mightiest"}}
                                             data-mission-id={this.state.missionId} onClick={this.handleCompleteMission}>
                                         Complete
-                                    </button>
+                                    </FlatButton>
                                 </div>
                             </CardText>
                         </Card>
@@ -63,7 +62,7 @@ class MissCard extends Component {
             return (
                 <div className={"col-lg-4 col-md-12 mb-3"}>
                     <div>
-                        <Card className={"p-2"}>
+                        <Card className={"p-2"} style={{backgroundColor: "#9E9E9E"}}>
                             <CardTitle style={{padding: "8px", fontFamily: "Avengeance Mightiest"}}
                                        title={this.state.title}/>
                             <CardText style={{
@@ -72,7 +71,7 @@ class MissCard extends Component {
                             <CardText style={{
                                 padding: "8px", fontFamily: "Comic Geek"
                             }}>Points: {this.state.points}</CardText>
-                            <CardText style={{padding: "8px"}}>Status: {this.state.status}</CardText>
+                            <CardText style={{padding: "8px"}}>Awaiting Command Approval</CardText>
                         </Card>
                     </div>
                 </div>
