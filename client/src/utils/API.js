@@ -25,8 +25,8 @@ export default {
     loadAvatars: function () {
         return axios.get("/api/parent/team/addchild/avatars");
     },
-    teamAddChild: function (id, pid,name,nick,avatar) {
-        return axios.post("/api/parent/team/addchild/save" + id, {
+    teamAddChild: function (id, name,nick,avatar) {
+        return axios.post("/api/parent/team/addchild/save/" + id, {
             name: name,
             nick: nick,
             avatar: avatar

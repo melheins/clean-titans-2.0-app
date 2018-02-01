@@ -4,6 +4,7 @@ import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
+import {Link} from 'react-router-dom';
 
 export class AddChild extends React.Component {
 
@@ -32,12 +33,15 @@ export class AddChild extends React.Component {
     };
 
     handleAvatarChange = (event, index, value) => this.setState({newChildAvatar: value});
-    handleNameChange = (event, index, value) => this.setState({newChildName: value});
-    handleNickChange = (event, index, value) => this.setState({newChildNick: value});
+    handleNameChange = (event, value) => this.setState({newChildName: value});
+    handleNickChange = (event, value) => this.setState({newChildNick: value});
 
     handleAddChildSave = event => {
-        event.preventDefault();
+        //event.preventDefault();
         const pid = localStorage.getItem('parentId');
+        console.log('Name: '+this.state.newChildName);
+        console.log('Nickname: '+this.state.newChildNick);
+        console.log('Avatar: '+this.state.newChildAvatar);
         API.teamAddChild(pid,this.state.newChildName,this.state.newChildNick,this.state.newChildAvatar)
             .then(res =>
                 console.log(res.data)
@@ -70,7 +74,7 @@ export class AddChild extends React.Component {
                                 {this.state.avatars.map((each, a) => {
                                     // console.log(each);
                                     // console.log(i);
-                                    return <MenuItem value={a} label={each.avatar_name} primaryText={each.avatar_name}>
+                                    return <MenuItem key={a} value={each.id} label={each.avatar_name} primaryText={each.avatar_name}>
                                         <div><img alt={each.avatar_name} className={"nav-icon-img"}
                                                   src={require(`../../assets/childavatars/${each.avatar_url}.jpg`)}/>
                                         </div>
@@ -79,11 +83,12 @@ export class AddChild extends React.Component {
 
                             </SelectField>
                         </div>
+                        <Link to='/parent/team'>
                         <FlatButton
                             style={{backgroundColor: 'red', fontWeight: 'bold', fontFamily: "Avengeance Mightiest"}}
                             onClick={this.handleAddChildSave}>
                             Add New Child
-                        </FlatButton>
+                        </FlatButton></Link>
                     </div>
                 </div>
             </div>
