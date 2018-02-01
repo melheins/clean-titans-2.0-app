@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import {Card, CardTitle, CardText} from 'material-ui/Card';
 import API from "../../utils/API";
+import FlatButton from 'material-ui/FlatButton';
+
 
 class RewCard extends Component {
     constructor(props) {
@@ -17,11 +19,10 @@ class RewCard extends Component {
 
     handlePurchaseReward = event => {
         event.preventDefault();
-        // const cid = localStorage.getItem('childId');
-        API.purchaseChildReward(this.state.rewardId)
+        const cid = localStorage.getItem('childId');
+        API.purchaseChildReward(this.state.rewardId,'R',cid,this.state.points)
             .then(res =>
-                //this.setState({status: 'C'})
-                console.log('purchased?')
+                this.props.handler
             )
             .catch(err => console.log(err));
     };
@@ -36,13 +37,11 @@ class RewCard extends Component {
                                        title={this.state.title}/>
                             <CardText style={{padding: "8px"}}>Description: {this.state.description}</CardText>
                             <CardText style={{padding: "8px"}}>Points: {this.state.points}</CardText>
-                            <CardText style={{padding: "8px"}}>Status: {this.state.status}</CardText>
-
                             <CardText>
                                 <div>
-                                    <button data-mission-id={this.state.rewardId} onClick={this.handlePurchaseReward}>
+                                    <FlatButton style={{backgroundColor:'red',fontWeight:'bold', fontFamily: "Avengeance Mightiest"}} data-mission-id={this.state.rewardId} onClick={this.handlePurchaseReward}>
                                         Purchase
-                                    </button>
+                                    </FlatButton>
                                 </div>
                             </CardText>
                         </Card>
@@ -54,12 +53,12 @@ class RewCard extends Component {
             return (
                 <div className={"col-lg-4 col-md-12 mb-3"}>
                     <div>
-                        <Card className={"p-2"}>
+                        <Card className={"p-2"} style={{backgroundColor: "#9E9E9E"}}>
                             <CardTitle style={{padding: "8px"}}
                                        title={this.state.title}/>
                             <CardText style={{padding: "8px"}}>Description: {this.state.description}</CardText>
                             <CardText style={{padding: "8px"}}>Points: {this.state.points}</CardText>
-                            <CardText style={{padding: "8px"}}>Status: {this.state.status}</CardText>
+                            <CardText style={{padding: "8px"}}>Awaiting Command Approval</CardText>
                         </Card>
                     </div>
                 </div>

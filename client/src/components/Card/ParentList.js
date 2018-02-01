@@ -1,29 +1,30 @@
 import React, {Component} from "react";
-//import {Card, CardActions, CardTitle, CardText} from 'material-ui/Card';
-//import Divider from 'material-ui/Divider';
-//import Avatar from 'material-ui/Avatar';
-//import IconButton from 'material-ui/IconButton';
-//import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-//import IconMenu from 'material-ui/IconMenu';
-//import MenuItem from 'material-ui/MenuItem';
 import {darkBlack, black, white} from 'material-ui/styles/colors';
 import {ListItem} from 'material-ui/List';
 import ModeEditIcon from 'react-material-icons/icons/editor/mode-edit';
 import DeleteIcon from 'react-material-icons/icons/action/delete';
+import IconButton from 'material-ui/IconButton';
+import API from "../../utils/API";
 
 import "./List.css";
 
+const styles = {
+    mediumIcon: {
+        width: 48,
+        height: 48,
+    },
+    medium: {
+        // width: 96,
+        height: 96,
+        // padding: 24,
+    },
+};
+
 class ParentList extends Component {
-
-
 
     constructor(props) {
         super();
 
-
-        // State matches the JSON from the DB Schema
-        // Methods is nested object with home/work/mobile/email
-        // Interactions is an array, populated from Interactions schema
         this.state = {
             title: props.title,
             points: props.points,
@@ -46,10 +47,22 @@ class ParentList extends Component {
                     marginBottom: '5px'
                 }}
                 rightIconButton={
-                    <div style={{color: black, fontWeight: 'bold', top: '30px'}}>
+                    <div style={{color: black, fontWeight: 'bold'}}>
                         <span style={{fontSize: '20px', paddingRight: '10px'}}>{this.state.points}pts</span>
-                        <span style={{height:'48px',width:'48px', paddingRight: '10px'}}><ModeEditIcon/></span>
-                        <span style={{fontSize: '30px', paddingRight: '10px'}}><DeleteIcon/></span>
+                        <span style={{paddingRight: '10px'}}>
+                                <IconButton data-mission-id={this.state.id} onClick={this.handleEditItem}
+                                            iconStyle={styles.mediumIcon}
+                                            style={styles.medium}>
+                                    <ModeEditIcon/>
+                                </IconButton>
+                        </span>
+                        <span style={{paddingRight: '10px'}}>
+                                <IconButton data-mission-id={this.state.id} onClick={this.handleDeleteItem}
+                                            iconStyle={styles.mediumIcon}
+                                            style={styles.medium}>
+                                    <DeleteIcon/>
+                                </IconButton>
+                        </span>
                     </div>}
                 primaryText={<span style={{fontWeight: 'bold', fontSize: '18px'}}>{this.state.title}</span>}
                 secondaryText={

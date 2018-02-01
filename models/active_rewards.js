@@ -2,8 +2,7 @@ module.exports = function (sequelize, DataTypes) {
     const active_rewards = sequelize.define("active_rewards", {
         reward_status: {
             type: DataTypes.STRING,
-            allowNull: false,
-            defaultValue: "I"
+            allowNull: false
         },
         reward_status_date: {
             type: DataTypes.DATEONLY,
