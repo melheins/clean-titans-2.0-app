@@ -36,7 +36,8 @@ body {
     /*right: auto;*/
 /*}*/
 
-h1 {
+h1,
+h2 {
     font-family: "Avengeance Mightiest Avenger", Helvetica, Arial, sans-serif;
 }
 
