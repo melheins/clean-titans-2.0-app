@@ -22,6 +22,16 @@ export default {
     loadTeamSec: function (id) {
         return axios.get("/api/parent/team/" + id);
     },
+    loadAvatars: function () {
+        return axios.get("/api/parent/team/addchild/avatars");
+    },
+    teamAddChild: function (id, pid,name,nick,avatar) {
+        return axios.post("/api/parent/team/addchild/save" + id, {
+            name: name,
+            nick: nick,
+            avatar: avatar
+        });
+    },
     // Loads parent missions page
     loadMissionSec: function (id) {
         return axios.get("/api/parent/missions/" + id);

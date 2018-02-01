@@ -72,6 +72,24 @@ router.get('/team/:id', (req, res) => {
     })
 });
 
+router.get('/team/addchild/avatars', (req, res) => {
+    console.log("test");
+    db.avatars.findAll({
+    }).then(function (avatarData) {
+        //console.log(avatarData);
+        res.json(avatarData);
+    })
+});
+
+router.post('/team/addchild/save/:id', (req, res) => {
+    console.log("test");
+    db.avatars.findAll({
+    }).then(function (avatarData) {
+        //console.log(avatarData);
+        res.json(avatarData);
+    })
+});
+
 router.get('/missions/:id', (req, res) => {
     const parentId = req.params.id;
 
