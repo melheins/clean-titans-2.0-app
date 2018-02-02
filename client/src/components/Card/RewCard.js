@@ -14,15 +14,20 @@ class RewCard extends Component {
             description: props.description,
             rewardId: props.rid,
             status: props.status,
+            handler: props.handler
         };
+
+        console.log(props.handler)
     }
+
+
 
     handlePurchaseReward = event => {
         event.preventDefault();
         const cid = localStorage.getItem('childId');
         API.purchaseChildReward(this.state.rewardId, 'R', cid, this.state.points)
             .then(res =>
-                this.props.handler
+                this.props.handler(cid)
             )
             .catch(err => console.log(err));
     };
