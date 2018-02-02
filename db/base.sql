@@ -10,11 +10,22 @@ INSERT INTO avatars (avatar_name, avatar_url, createdAt, updatedAt)
 VALUES ('Superman','superman',current_timestamp(),current_timestamp());
 
 INSERT INTO avatars (avatar_name, avatar_url, createdAt, updatedAt)
-VALUES ('Spider Girl','spider girl',current_timestamp(),current_timestamp());
+VALUES ('Spider Girl','spider-girl',current_timestamp(),current_timestamp());
 
 INSERT INTO avatars (avatar_name, avatar_url, createdAt, updatedAt)
-VALUES ('Spider Boy','spider boy',current_timestamp(),current_timestamp());
+VALUES ('Spider Boy','spiderman',current_timestamp(),current_timestamp());
 
+INSERT INTO avatars (avatar_name, avatar_url, createdAt, updatedAt)
+VALUES ('Bat Girl','batgirl',current_timestamp(),current_timestamp());
+
+INSERT INTO avatars (avatar_name, avatar_url, createdAt, updatedAt)
+VALUES ('Batman','batman',current_timestamp(),current_timestamp());
+
+INSERT INTO avatars (avatar_name, avatar_url, createdAt, updatedAt)
+VALUES ('Wonder Woman','wonder-woman',current_timestamp(),current_timestamp());
+
+INSERT INTO avatars (avatar_name, avatar_url, createdAt, updatedAt)
+VALUES ('Captain American','captain-american',current_timestamp(),current_timestamp());
 
 
 /**--##Missions Data##**/

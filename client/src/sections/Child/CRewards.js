@@ -15,17 +15,18 @@ export class CRewards extends React.Component {
         this.loadRewardSection(cid);
     }
 
-    loadRewardSection(cid) {
-        console.log('Reward P2 - Child Id: ' + cid);
+    loadRewardSection = (cid) => {
+        //
         API.loadChildRewardSec(cid)
             .then(res =>
-                    // console.log(res.data)
-                    this.setState({rewards: res.data})
-                //this.setState({children: JSON.stringify(res.data)})
-            )
+                this.setState({rewards: res.data})
+            ).then(
+            console.log(this.state.rewards)
+        )
             .catch(err => console.log(err));
-    };
+        //console.log('test');
 
+    };
     render() {
         if (this.state.rewards.length > 0) {
             return (
@@ -35,12 +36,12 @@ export class CRewards extends React.Component {
                         <div className={'row'}>
                             {console.log(this.state.rewards)}
                             {this.state.rewards.map((each, i) => {
-                                return <RewCard key={i} title={each.parent_reward.reward_name}
+                                return <RewCard key={each.id} title={each.parent_reward.reward_name}
                                                 points={each.parent_reward.reward_points_required}
                                                 description={each.parent_reward.reward_description}
                                                 status={each.reward_status}
                                                 rid={each.id}
-                                                handler = {this.loadRewardSection}
+                                                handler={this.loadRewardSection}
                                 />;
                             })}
                         </div>
