@@ -3,14 +3,10 @@ import {Card, CardTitle, CardText} from 'material-ui/Card';
 import CardImg from './CardImg'
 import {black, white} from 'material-ui/styles/colors';
 
-
 class TeamCard extends Component {
     constructor(props) {
         super(props);
 
-        // State matches the JSON from the MongoDB Schema
-        // Methods is nested object with home/work/mobile/email
-        // Interactions is an array, populated from Interactions schema
         this.state = {
             first_name: this.props.first_name,
             nickname: this.props.nickname,
@@ -19,9 +15,7 @@ class TeamCard extends Component {
     }
 
     render() {
-
         return (
-
             <div className={"col-lg-4 col-md-12 mb-3"}>
                 <div>
                     <Card className={"p-2"} style={{
