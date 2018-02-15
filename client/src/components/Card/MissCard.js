@@ -40,15 +40,20 @@ class MissCard extends Component {
                             <CardText style={{
                                 padding: "8px",
                                 fontFamily: "Comic Geek"
-                            }}>Description: {this.state.description}</CardText>
+                            }}>{this.state.description}</CardText>
                             <CardText style={{
                                 padding: "8px",
                                 fontFamily: "Comic Geek"
-                            }}>Points: {this.state.points}</CardText>
+                            }}>{this.state.points}pts</CardText>
                             <CardText>
                                 <div>
-                                    <FlatButton style={{backgroundColor:'red',fontWeight:'bold', fontFamily: "Avengeance Mightiest"}}
-                                            data-mission-id={this.state.missionId} onClick={this.handleCompleteMission}>
+                                    <FlatButton style={{
+                                        backgroundColor: 'red',
+                                        fontWeight: 'bold',
+                                        fontFamily: "Avengeance Mightiest"
+                                    }}
+                                                data-mission-id={this.state.missionId}
+                                                onClick={this.handleCompleteMission}>
                                         Complete
                                     </FlatButton>
                                 </div>
@@ -67,10 +72,10 @@ class MissCard extends Component {
                                        title={this.state.title}/>
                             <CardText style={{
                                 padding: "8px", fontFamily: "Comic Geek"
-                            }}>Description: {this.state.description}</CardText>
+                            }}>{this.state.description}</CardText>
                             <CardText style={{
                                 padding: "8px", fontFamily: "Comic Geek"
-                            }}>Points: {this.state.points}</CardText>
+                            }}>{this.state.points}pts</CardText>
                             <CardText style={{padding: "8px"}}>Awaiting Command Approval</CardText>
                         </Card>
                     </div>

@@ -47,7 +47,7 @@ VALUES ('I', current_timestamp(), current_timestamp(), current_timestamp(), 2, 2
 
 /**--##Active Rewards##**/
 INSERT INTO active_rewards (reward_status, reward_status_date, createdAt, updatedAt, parentRewardId, childId, parentId)
-VALUES ('R', current_timestamp(), current_timestamp(), current_timestamp(), 1, 1, 1);
+VALUES ('I', current_timestamp(), current_timestamp(), current_timestamp(), 1, 1, 1);
 
 INSERT INTO active_rewards (reward_status, reward_status_date, createdAt, updatedAt, parentRewardId, childId, parentId)
-VALUES ('C', current_timestamp(), current_timestamp(), current_timestamp(), 2, 1, 1);
+VALUES ('I', current_timestamp(), current_timestamp(), current_timestamp(), 2, 1, 1);
