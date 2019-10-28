@@ -30,6 +30,6 @@
     "mysql2": "^1.5.1",
     "path": "^0.12.7",
     "react-router-dom": "^4.2.2",
-    "sequelize": "^4.26.0"
+    "sequelize": "^5.15.1"
   }
 }
